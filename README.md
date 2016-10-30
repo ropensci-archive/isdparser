@@ -5,6 +5,11 @@ isdparser
 
 `isdparser` is an parser for ISD/ISD NOAA files
 
+Code liberated from `rnoaa` to focus on ISD parsing since it's sorta 
+complicated. Has minimal dependencies, so you can parse your ISD/ISH
+files without needing the deps that `rnoaa` needs. Will be used by 
+`rnoaa` once on CRAN.
+
 ## Installation
 
 
