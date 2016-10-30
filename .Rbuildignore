@@ -1,0 +1,10 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+.travis.yml
+man-roxygen
+CONTRIBUTING.md
+.Rhistory
+^README\.Rmd$
+^CONDUCT\.md$
+^cran-comments\.md$
+^issue_template\.md$

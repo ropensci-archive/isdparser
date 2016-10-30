@@ -1,0 +1,18 @@
+Package: isdparser
+Title: Parse 'NOAA' ISD Files
+Description: Parse 'NOAA' ISD Files.
+Version: 0.0.5.9000
+License: MIT + file LICENSE
+Encoding: UTF-8
+Authors@R: c(
+    person("Scott", "Chamberlain", role = c("aut","cre"), email = "myrmecocystus@gmail.com")
+  )
+URL: https://github.com/ropenscilabs/isdparser
+BugReports: http://www.github.com/ropenscilabs/isdparser/issues
+Imports:
+    tibble,
+    data.table (>= 1.9.6)
+Suggests:
+    roxygen2 (>= 5.0.1),
+    testthat
+RoxygenNote: 5.0.1
