@@ -2,17 +2,33 @@
 #'
 #' @export
 #' @param path (character) file path. required
+#' @param parallel (logical). do processing in parallel. Default: \code{FALSE}
+#' @param cores (integer) number of cores to use: Default: 2. We look in
+#' your option "cl.cores", but use default value if not found.
 #' @references ftp://ftp.ncdc.noaa.gov/pub/data/noaa
 #' @return A tibble (data.frame)
 #' @examples \dontrun{
-#' isd_parser(path = "~/Downloads/725300-94846-2014.gz")
+#' path <- system.file('extdata/725300-94846-2014.gz', package = "isdparser")
+#'
+#' (res <- isd_parser(path))
+#'
+#' # in parallel
+#' (out <- isd_parser(path, parallel = TRUE))
+#'
+#' identical(res, out)
 #' }
-isd_parser <- function(path, ...) {
+isd_parser <- function(path, parallel = FALSE, cores = getOption("cl.cores", 2)) {
   if (!file.exists(path)) stop("file not found", call. = FALSE)
   message(sprintf("<path>%s", path), "\n")
 
   lns <- readLines(path, encoding = "latin1")
-  linesproc <- lapply(lns, each_line, sections = sections)
+  if (parallel) {
+    cl <- parallel::makeCluster(cores)
+    linesproc <- parallel::parLapply(cl, lns, each_line, sections = sections)
+    parallel::stopCluster(cl)
+  } else {
+    linesproc <- lapply(lns, each_line, sections = sections)
+  }
   df <- data.table::setDF(
     data.table::rbindlist(linesproc, fill = TRUE, use.names = TRUE)
   )
@@ -31,3 +47,7 @@ each_line <- function(y, sections){
     c(normal, oth)
   }
 }
+
+# cl <- parallel::makeCluster(getOption("cl.cores", 4))
+# linesproc <- parallel::parLapply(cl, lns, each_line, sections = sections)
+# stopCluster(cl)
