@@ -1,5 +1,4 @@
-proc_other <- function(x){
-  # x <- substring(x, 4, nchar(x))
+proc_other <- function(x) {
   tt <- list(
     check_get(x, "AA1", aa),
     check_get(x, "AA2", aa),
@@ -68,7 +67,6 @@ check_get <- function(string, pattern, fxn) {
   stats::setNames(list(tt), pattern)
 }
 
-# str_match_len(x, "SA1", 8)
 str_match_len <- function(x, index, length){
   ff <- regexpr(index, x)
   if (ff > 0) {
@@ -83,6 +81,8 @@ str_from_to <- function(x, a, b){
 }
 
 str_pieces <- function(z, pieces, nms=NULL){
-  tmp <- lapply(pieces, function(x) substring(z, x[1], if (x[2] == 999) nchar(z) else x[2]))
+  tmp <- lapply(pieces, function(x) {
+    substring(z, x[1], if (x[2] == 999) nchar(z) else x[2])
+  })
   if (is.null(nms)) tmp else stats::setNames(tmp, nms)
 }

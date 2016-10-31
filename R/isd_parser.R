@@ -47,7 +47,3 @@ each_line <- function(y, sections){
     c(normal, oth)
   }
 }
-
-# cl <- parallel::makeCluster(getOption("cl.cores", 4))
-# linesproc <- parallel::parLapply(cl, lns, each_line, sections = sections)
-# stopCluster(cl)

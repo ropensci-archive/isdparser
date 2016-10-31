@@ -1,0 +1,67 @@
+# Wind Data --------------------------------
+
+# Wind Data: SUPPLEMENTARY-WIND-OBSERVATION
+# OA1-OA3
+oa <- function(x, code){
+  str_pieces(
+    str_match_len(x, code, 11),
+    list(c(1,3),c(4,4),c(5,6),c(7,10),c(11,11)),
+    c('supplementary_wind_observation_identifier',
+      'type_code', 'period_quantity', 'speed_rate',
+      'speed_rate_quality_code')
+  )
+}
+
+
+# Wind Data: Hourly/Sub-Hourly Wind Section
+# OB1-OB2
+ob <- function(x, code){
+  str_pieces(
+    str_match_len(x, code, 31),
+    list(c(1,3),c(4,6),c(7,10),c(11,11),c(12,12),c(13,15),c(16,16),
+         c(17,17),c(18,22),c(23,23),c(24,24),c(25,29),c(30,30),c(31,31)),
+    c('hourly_sub_hourly_wind_section_identifier',
+      'wind_avg_time', 'maximum_gust', 'wind_max_quality_code',
+      'wind_max_flag', 'wind_max_direction',
+      'wind_max_direction_quality_code', 'wind_max_direction_flag',
+      'wind_standard_deviation', 'wind_standard_deviation_quality_code',
+      'wind_standard_deviation_flag',
+      'wind_direction_standard_deviation', 'wind_direction_quality_code',
+      'wind_direction_flag')
+  )
+}
+
+# Wind Data: WIND-GUST-OBSERVATION
+# OC1
+oc1 <- function(x, code){
+  str_pieces(
+    str_match_len(x, code, 8),
+    list(c(1,3),c(4,7),c(8,8)),
+    c('wind_gust_observation_identifier', 'speed_rate', 'quality_code')
+  )
+}
+
+# Wind Data: SUPPLEMENTARY-WIND-OBSERVATION
+# OD1-OD3
+od1 <- function(x, code){
+  str_pieces(
+    str_match_len(x, code, 14),
+    list(c(1,3),c(4,4),c(5,6),c(7,10),c(11,11),c(12,14)),
+    c('supplementary_wind_observation_identifier',
+      'type_code', 'period_quantity', 'speed_rate',
+      'speed_rate_quality_code', 'direction_quantity')
+  )
+}
+
+# Wind Data: SUMMARY-OF-DAY-WIND-OBSERVATION
+# OE1-OE3
+oe <- function(x, code){
+  str_pieces(
+    str_match_len(x, code, 19),
+    list(c(1,3),c(4,4),c(5,6),c(7,11),c(12,14),c(15,18),c(19,19)),
+    c('summary_of_day_wind_observation_identifier',
+      'type_code', 'period_quantity', 'speed_rate',
+      'direction_of_wind', 'time_of_occurrence_in_z_time_utc',
+      'quality_code')
+  )
+}
