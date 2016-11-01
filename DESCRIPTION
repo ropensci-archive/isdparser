@@ -1,7 +1,7 @@
 Package: isdparser
 Title: Parse 'NOAA' ISD Files
 Description: Parse 'NOAA' ISD Files.
-Version: 0.0.5.9700
+Version: 0.0.5.9750
 License: MIT + file LICENSE
 Encoding: UTF-8
 Authors@R: c(

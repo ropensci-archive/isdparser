@@ -10,64 +10,9 @@ isd_patterns <- c(
 )
 
 proc_other <- function(x) {
-  # tt <- list(
-  #   check_get(x, "AA1", aa),
-  #   check_get(x, "AA2", aa),
-  #   check_get(x, "AA3", aa),
-  #   check_get(x, "AA4", aa),
-  #   check_get(x, "SA1", sa1),
-  #   check_get(x, "AJ1", aj1),
-  #   check_get(x, "GE1", ge1),
-  #   check_get(x, "REM", rem),
-  #   check_get(x, "AY1", ay),
-  #   check_get(x, "AY2", ay),
-  #   check_get(x, "AG1", ag1),
-  #   check_get(x, "GF1", gf1),
-  #   check_get(x, "KA1", ka),
-  #   check_get(x, "KA2", ka),
-  #   check_get(x, "KA3", ka),
-  #   check_get(x, "KA4", ka),
-  #   check_get(x, "EQD", eqd),
-  #   check_get(x, "MD1", md1),
-  #   check_get(x, "MA1", ma1),
-  #   check_get(x, "MW1", mw1),
-  #   check_get(x, "AU1", au),
-  #   check_get(x, "AU2", au),
-  #   check_get(x, "AU3", au),
-  #   check_get(x, "AU4", au),
-  #   check_get(x, "AU5", au),
-  #   check_get(x, "AU6", au),
-  #   check_get(x, "AU7", au),
-  #   check_get(x, "AU8", au),
-  #   check_get(x, "AU9", au),
-  #   check_get(x, "AW1", aw),
-  #   check_get(x, "AW2", aw),
-  #   check_get(x, "AW3", aw),
-  #   check_get(x, "AW4", aw),
-  #   check_get(x, "GA1", ga),
-  #   check_get(x, "GA2", ga),
-  #   check_get(x, "GA3", ga),
-  #   check_get(x, "GA4", ga),
-  #   check_get(x, "GA5", ga),
-  #   check_get(x, "GA6", ga),
-  #   check_get(x, "GD1", gd),
-  #   check_get(x, "GD2", gd),
-  #   check_get(x, "GD3", gd),
-  #   check_get(x, "GD4", gd),
-  #   check_get(x, "GD5", gd),
-  #   check_get(x, "GD6", gd),
-  #   check_get(x, "OC1", oc1),
-  #   check_get(x, "OD1", od1),
-  #   check_get(x, "OE1", oe),
-  #   check_get(x, "OE2", oe),
-  #   check_get(x, "OE3", oe)
-  # )
-
-
   tt <- unlist(lapply(isd_patterns, function(z) {
     obj <- eval(parse(text = z))
     lapply(obj$ids, function(w) check_get(x, w, obj$fun))
-    #unlist(lapply(obj$ids, function(w) check_get(x, w, obj$fun)), FALSE)
   }), FALSE)
   other <- tt[!vapply(tt, function(x) is.null(x[[1]]), TRUE)]
   unlist(lapply(other, function(z) {
