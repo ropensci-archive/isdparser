@@ -24,7 +24,7 @@ lns <- readLines(path, encoding = "latin1")
 isd_parse_line(lns[1])
 isd_parse_line(lns[1], FALSE)
 
-res <- lapply(lns[1:10], isd_parse_line)
+res <- lapply(lns[1:1000], isd_parse_line)
 library("data.table")
 library("tibble")
 as_data_frame(

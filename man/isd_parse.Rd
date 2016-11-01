@@ -30,6 +30,8 @@ path <- system.file('extdata/725300-94846-2014.gz', package = "isdparser")
 (out <- isd_parse(path, parallel = TRUE))
 
 identical(res, out)
+
+download.file()
 }
 }
 \references{

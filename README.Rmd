@@ -17,6 +17,12 @@ complicated. Has minimal dependencies, so you can parse your ISD/ISH
 files without needing the deps that `rnoaa` needs. Will be used by 
 `rnoaa` once on CRAN.
 
+## API:
+
+* `isd_parse()` - parse all lines in a file, with parallel option
+* `isd_parse_line()` - parse a single line - you choose which lines to parse 
+and how to apply the function to your lines
+
 ## Installation
 
 ```{r eval=FALSE}
@@ -27,11 +33,33 @@ devtools::install_github("ropenscilabs/isdparser")
 library('isdparser')
 ```
 
+### Parse lines from an ISD file
+
+```{r}
+path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
+lns <- readLines(path, encoding = "latin1")
+isd_parse_line(lns[1])
+```
+
+Or, give back a list
+
+```{r}
+head(
+  isd_parse_line(lns[1], as_data_frame = FALSE)
+)
+```
+
 ### Parse an ISD file
 
 ```{r}
-path <- system.file('extdata/725300-94846-2014.gz', package = "isdparser")
-isd_parser(path)
+path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
+isd_parse(path)
+```
+
+process in parallel
+
+```{r eval=FALSE}
+isd_parse(path, parallel = TRUE)
 ```
 
 ## Meta

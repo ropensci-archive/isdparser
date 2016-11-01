@@ -9,13 +9,36 @@ isd_patterns <- c(
   'rem','rh','sa1','st1','ua1','ug1','ug2','wa1','wd1','wg1','wj1'
 )
 
+# all_patterns <- lapply(isd_patterns, function(z) eval(parse(text = z))$ids)
+# all_patterns <- stats::setNames(
+#   unlist(all_patterns), rep(isd_patterns, vapply(all_patterns, length, 1))
+# )
+
+# proc_other <- function(x) {
+#   tt <- unlist(lapply(isd_patterns, function(z) {
+#     obj <- eval(parse(text = z))
+#     lapply(obj$ids, function(w) check_get(x, w, obj$fun))
+#   }), FALSE)
+#   other <- tt[!vapply(tt, function(x) is.null(x[[1]]), TRUE)]
+#   unlist(lapply(other, function(z) {
+#     nms <- names(z)
+#     tmp <- if (!is_named(z[[1]])) z[[1]][[1]] else z[[1]]
+#     stats::setNames(tmp, paste(nms, names(tmp), sep = "_"))
+#   }), FALSE)
+# }
+
 proc_other <- function(x) {
-  tt <- unlist(lapply(isd_patterns, function(z) {
-    obj <- eval(parse(text = z))
-    lapply(obj$ids, function(w) check_get(x, w, obj$fun))
-  }), FALSE)
-  other <- tt[!vapply(tt, function(x) is.null(x[[1]]), TRUE)]
-  unlist(lapply(other, function(z) {
+  # grepl all patterns
+  found_patterns <- as.list(
+    all_patterns[vapply(all_patterns, grepl, logical(1), x = x)]
+  )
+
+  # extract just those that are found
+  tt <- unname(Map(function(z, a) {
+    obj <- eval(parse(text = a))
+    check_get(x, z, obj$fun)
+  }, found_patterns, names(found_patterns)))
+  unlist(lapply(tt, function(z) {
     nms <- names(z)
     tmp <- if (!is_named(z[[1]])) z[[1]][[1]] else z[[1]]
     stats::setNames(tmp, paste(nms, names(tmp), sep = "_"))

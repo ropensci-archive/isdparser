@@ -8,7 +8,7 @@
 #' @references ftp://ftp.ncdc.noaa.gov/pub/data/noaa
 #' @return A tibble (data.frame)
 #' @examples \dontrun{
-#' path <- system.file('extdata/725300-94846-2014.gz', package = "isdparser")
+#' path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
 #'
 #' (res <- isd_parse(path))
 #'
@@ -16,6 +16,8 @@
 #' (out <- isd_parse(path, parallel = TRUE))
 #'
 #' identical(res, out)
+#'
+#' download.file()
 #' }
 isd_parse <- function(path, parallel = FALSE, cores = getOption("cl.cores", 2)) {
   if (!file.exists(path)) stop("file not found", call. = FALSE)
@@ -33,17 +35,4 @@ isd_parse <- function(path, parallel = FALSE, cores = getOption("cl.cores", 2)) 
     data.table::rbindlist(linesproc, fill = TRUE, use.names = TRUE)
   )
   tibble::as_data_frame(trans_vars(df))
-}
-
-each_line <- function(y, sections){
-  normal <- Map(function(a,b) subs(y, a, b),
-                pluck(sections, "start"),
-                pluck(sections, "stop"))
-  other <- gsub("\\s+$", "", substring(y, 106, nchar(y)))
-  oth <- proc_other(other)
-  if (is.null(oth)) {
-    normal
-  } else {
-    c(normal, oth)
-  }
 }
