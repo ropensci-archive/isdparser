@@ -1,7 +1,7 @@
 Package: isdparser
 Title: Parse 'NOAA' ISD Files
 Description: Parse 'NOAA' ISD Files.
-Version: 0.0.6.9100
+Version: 0.0.7.9810
 License: MIT + file LICENSE
 Encoding: UTF-8
 Authors@R: c(
@@ -14,5 +14,9 @@ Imports:
     data.table (>= 1.9.6)
 Suggests:
     roxygen2 (>= 5.0.1),
-    testthat
+    testthat,
+    rmarkdown,
+    knitr,
+    covr
+VignetteBuilder: knitr
 RoxygenNote: 5.0.1

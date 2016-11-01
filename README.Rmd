@@ -10,17 +10,23 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![Build Status](https://travis-ci.org/ropenscilabs/isdparser.svg?branch=master)](https://travis-ci.org/ropenscilabs/isdparser)
+[![codecov.io](https://codecov.io/github/ropensci/rnoaa/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rnoaa?branch=master)
+
+
 `isdparser` is an parser for ISD/ISD NOAA files
 
-Code liberated from `rnoaa` to focus on ISD parsing since it's sorta 
+Code liberated from `rnoaa` to focus on ISD parsing since it's sorta
 complicated. Has minimal dependencies, so you can parse your ISD/ISH
-files without needing the deps that `rnoaa` needs. Will be used by 
+files without needing the deps that `rnoaa` needs. Will be used by
 `rnoaa` once on CRAN.
+
+Documentation at ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ish-format-document.pdf
 
 ## API:
 
 * `isd_parse()` - parse all lines in a file, with parallel option
-* `isd_parse_line()` - parse a single line - you choose which lines to parse 
+* `isd_parse_line()` - parse a single line - you choose which lines to parse
 and how to apply the function to your lines
 
 ## Installation

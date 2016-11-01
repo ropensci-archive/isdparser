@@ -10,6 +10,7 @@
 #' time, so if processing time is important, then keep as \code{FALSE}
 #' @references ftp://ftp.ncdc.noaa.gov/pub/data/noaa
 #' @return A tibble (data.frame)
+#' @seealso \code{\link{isd_parse_line}}
 #' @examples \dontrun{
 #' path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
 #'
@@ -35,7 +36,6 @@ isd_parse <- function(path, parallel = FALSE, cores = getOption("cl.cores", 2),
     linesproc <- parallel::parLapply(cl, lns, each_line, sections = sections)
     parallel::stopCluster(cl)
   } else {
-    #linesproc <- lapply(lns, each_line, sections = sections)
     linesproc <- vector(mode = "list", length = length(lns))
     if (progress) {
       pb <- utils::txtProgressBar(min = 0, max = length(lns), initial = 0, style = 3)

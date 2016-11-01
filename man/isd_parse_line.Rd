@@ -35,4 +35,7 @@ as_data_frame(
 \references{
 ftp://ftp.ncdc.noaa.gov/pub/data/noaa
 }
+\seealso{
+\code{\link{isd_parse}}
+}
 

@@ -43,4 +43,7 @@ identical(res, out)
 \references{
 ftp://ftp.ncdc.noaa.gov/pub/data/noaa
 }
+\seealso{
+\code{\link{isd_parse_line}}
+}
 
