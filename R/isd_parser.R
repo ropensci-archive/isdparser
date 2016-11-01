@@ -10,14 +10,14 @@
 #' @examples \dontrun{
 #' path <- system.file('extdata/725300-94846-2014.gz', package = "isdparser")
 #'
-#' (res <- isd_parser(path))
+#' (res <- isd_parse(path))
 #'
 #' # in parallel
-#' (out <- isd_parser(path, parallel = TRUE))
+#' (out <- isd_parse(path, parallel = TRUE))
 #'
 #' identical(res, out)
 #' }
-isd_parser <- function(path, parallel = FALSE, cores = getOption("cl.cores", 2)) {
+isd_parse <- function(path, parallel = FALSE, cores = getOption("cl.cores", 2)) {
   if (!file.exists(path)) stop("file not found", call. = FALSE)
   message(sprintf("<path>%s", path), "\n")
 
