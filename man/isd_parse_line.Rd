@@ -19,7 +19,7 @@ Parse NOAA ISD/ISH data files - line by line
 }
 \examples{
 \dontrun{
-path <- system.file('extdata/725300-94846-2014.gz', package = "isdparser")
+path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
 lns <- readLines(path, encoding = "latin1")
 isd_parse_line(lns[1])
 isd_parse_line(lns[1], FALSE)

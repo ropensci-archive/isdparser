@@ -4,7 +4,8 @@
 \alias{isd_parse}
 \title{Parse NOAA ISD/ISH data files}
 \usage{
-isd_parse(path, parallel = FALSE, cores = getOption("cl.cores", 2))
+isd_parse(path, parallel = FALSE, cores = getOption("cl.cores", 2),
+  progress = FALSE)
 }
 \arguments{
 \item{path}{(character) file path. required}
@@ -13,6 +14,10 @@ isd_parse(path, parallel = FALSE, cores = getOption("cl.cores", 2))
 
 \item{cores}{(integer) number of cores to use: Default: 2. We look in
 your option "cl.cores", but use default value if not found.}
+
+\item{progress}{(logical) print progress - ignored if \code{parallel=TRUE}.
+The default is \code{FALSE} because printing progress adds a small bit of
+time, so if processing time is important, then keep as \code{FALSE}}
 }
 \value{
 A tibble (data.frame)
@@ -22,16 +27,17 @@ Parse NOAA ISD/ISH data files
 }
 \examples{
 \dontrun{
-path <- system.file('extdata/725300-94846-2014.gz', package = "isdparser")
+path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
 
 (res <- isd_parse(path))
+
+# with progress
+(res2 <- isd_parse(path, progress = TRUE))
 
 # in parallel
 (out <- isd_parse(path, parallel = TRUE))
 
 identical(res, out)
-
-download.file()
 }
 }
 \references{
