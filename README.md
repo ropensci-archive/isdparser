@@ -7,7 +7,7 @@ isdparser
 [![codecov.io](https://codecov.io/github/ropenscilabs/isdparser/coverage.svg?branch=master)](https://codecov.io/github/ropenscilabs/isdparser?branch=master)
 
 
-`isdparser` is an parser for ISD/ISD NOAA files
+`isdparser` is a parser for ISD/ISD NOAA files
 
 Code liberated from `rnoaa` to focus on ISD parsing since it's sorta
 complicated. Has minimal dependencies, so you can parse your ISD/ISH
