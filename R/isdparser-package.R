@@ -3,7 +3,7 @@
 #' @section Data format:
 #' Each record (data.frame row or individual list element) you get via
 #' \code{isd_parse} or \code{isd_parse_line} has all data combined.
-#' Control data fields are first, then mandotory fields, then additional data
+#' Control data fields are first, then mandatory fields, then additional data
 #' fields and remarks. Control and mandatory fields have column names
 #' describing what they are, while additional data fields have a length
 #' three character prefix (e.g., AA1) linking the fields to the documentation
