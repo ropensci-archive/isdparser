@@ -24,6 +24,15 @@ and how to apply the function to your lines
 
 ## Installation
 
+CRAN stable version
+
+
+```r
+install.packages("isdparser")
+```
+
+Dev version
+
 
 ```r
 devtools::install_github("ropenscilabs/isdparser")
@@ -73,19 +82,19 @@ head(
 )
 #> $total_chars
 #> [1] 54
-#>
+#> 
 #> $usaf_station
 #> [1] "024130"
-#>
+#> 
 #> $wban_station
 #> [1] "99999"
-#>
+#> 
 #> $date
 #> [1] "2016-01-01"
-#>
+#> 
 #> $time
 #> [1] "0000"
-#>
+#> 
 #> $date_flag
 #> [1] "4"
 ```

@@ -31,6 +31,14 @@ and how to apply the function to your lines
 
 ## Installation
 
+CRAN stable version
+
+```{r eval=FALSE}
+install.packages("isdparser")
+```
+
+Dev version
+
 ```{r eval=FALSE}
 devtools::install_github("ropenscilabs/isdparser")
 ```
