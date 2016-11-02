@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 ```
 
 [![Build Status](https://travis-ci.org/ropenscilabs/isdparser.svg?branch=master)](https://travis-ci.org/ropenscilabs/isdparser)
-[![codecov.io](https://codecov.io/github/ropensci/rnoaa/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rnoaa?branch=master)
+[![codecov.io](https://codecov.io/github/ropenscilabs/isdparser/coverage.svg?branch=master)](https://codecov.io/github/ropenscilabs/isdparser?branch=master)
 
 
 `isdparser` is an parser for ISD/ISD NOAA files
