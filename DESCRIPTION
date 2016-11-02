@@ -1,5 +1,5 @@
 Package: isdparser
-Title: Parse 'NOAA' ISD Files
+Title: Parse 'NOAA' 'ISD' Files
 Description: Tools for parsing 'NOAA' Integrated Surface Data ('ISD') files,
     described at <https://www.ncdc.noaa.gov/isd>. Data includes for example,
     wind speed and direction, temperature, cloud data, sea level pressure,
