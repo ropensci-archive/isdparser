@@ -26,19 +26,13 @@ A tibble (data.frame)
 Parse NOAA ISD/ISH data files
 }
 \examples{
-\dontrun{
-path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
+path <- system.file('extdata/104270-99999-1928.gz', package = "isdparser")
 
 (res <- isd_parse(path))
 
 # with progress
 (res2 <- isd_parse(path, progress = TRUE))
 
-# in parallel
-(out <- isd_parse(path, parallel = TRUE))
-
-identical(res, out)
-}
 }
 \references{
 ftp://ftp.ncdc.noaa.gov/pub/data/noaa

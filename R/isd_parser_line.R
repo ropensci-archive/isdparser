@@ -6,7 +6,7 @@
 #' @references ftp://ftp.ncdc.noaa.gov/pub/data/noaa
 #' @return A tibble (data.frame)
 #' @seealso \code{\link{isd_parse}}
-#' @examples \dontrun{
+#' @examples
 #' path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
 #' lns <- readLines(path, encoding = "latin1")
 #' isd_parse_line(lns[1])
@@ -18,7 +18,6 @@
 #' as_data_frame(
 #'  rbindlist(res, use.names = TRUE, fill = TRUE)
 #' )
-#' }
 isd_parse_line <- function(x, as_data_frame = TRUE) {
   if (!inherits(x, "character")) stop("'x' must be class character", call. = FALSE)
   res <- each_line(x, sections = sections)

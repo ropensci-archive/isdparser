@@ -18,7 +18,6 @@ A tibble (data.frame)
 Parse NOAA ISD/ISH data files - line by line
 }
 \examples{
-\dontrun{
 path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
 lns <- readLines(path, encoding = "latin1")
 isd_parse_line(lns[1])
@@ -30,7 +29,6 @@ library("tibble")
 as_data_frame(
  rbindlist(res, use.names = TRUE, fill = TRUE)
 )
-}
 }
 \references{
 ftp://ftp.ncdc.noaa.gov/pub/data/noaa
