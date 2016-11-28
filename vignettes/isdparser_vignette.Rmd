@@ -52,7 +52,7 @@ install.packages("isdparser")
 Dev version
 
 ```{r eval=FALSE}
-devtools::install_github(c("ropenscilabs/isdparser"))
+devtools::install_github(c("ropensci/isdparser"))
 ```
 
 ```{r}

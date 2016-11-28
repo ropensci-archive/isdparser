@@ -3,8 +3,8 @@ isdparser
 
 
 
-[![Build Status](https://travis-ci.org/ropenscilabs/isdparser.svg?branch=master)](https://travis-ci.org/ropenscilabs/isdparser)
-[![codecov.io](https://codecov.io/github/ropenscilabs/isdparser/coverage.svg?branch=master)](https://codecov.io/github/ropenscilabs/isdparser?branch=master)
+[![Build Status](https://travis-ci.org/ropensci/isdparser.svg?branch=master)](https://travis-ci.org/ropensci/isdparser)
+[![codecov.io](https://codecov.io/github/ropensci/isdparser/coverage.svg?branch=master)](https://codecov.io/github/ropensci/isdparser?branch=master)
 
 
 `isdparser` is a parser for ISD/ISD NOAA files
@@ -35,7 +35,7 @@ Dev version
 
 
 ```r
-devtools::install_github("ropenscilabs/isdparser")
+devtools::install_github("ropensci/isdparser")
 ```
 
 
@@ -82,19 +82,19 @@ head(
 )
 #> $total_chars
 #> [1] 54
-#> 
+#>
 #> $usaf_station
 #> [1] "024130"
-#> 
+#>
 #> $wban_station
 #> [1] "99999"
-#> 
+#>
 #> $date
 #> [1] "2016-01-01"
-#> 
+#>
 #> $time
 #> [1] "0000"
-#> 
+#>
 #> $date_flag
 #> [1] "4"
 ```
@@ -146,7 +146,7 @@ isd_parse(path, parallel = TRUE)
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropenscilabs/isdparser/issues).
+* Please [report any issues or bugs](https://github.com/ropensci/isdparser/issues).
 * License: MIT
 * Get citation information for `isdparser` in R doing `citation(package = 'isdparser')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
