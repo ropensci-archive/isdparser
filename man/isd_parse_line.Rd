@@ -4,10 +4,13 @@
 \alias{isd_parse_line}
 \title{Parse NOAA ISD/ISH data files - line by line}
 \usage{
-isd_parse_line(x, as_data_frame = TRUE)
+isd_parse_line(x, additional = TRUE, as_data_frame = TRUE)
 }
 \arguments{
 \item{x}{(character) a single ISD line}
+
+\item{additional}{(logical) include additional and remarks data sections
+in output. Default: \code{TRUE}}
 
 \item{as_data_frame}{(logical) output a tibble. Default: \code{FALSE}}
 }
@@ -29,6 +32,10 @@ library("tibble")
 as_data_frame(
  rbindlist(res, use.names = TRUE, fill = TRUE)
 )
+
+# only control + mandatory sections
+isd_parse_line(lns[10], additional = FALSE)
+isd_parse_line(lns[10], additional = TRUE)
 }
 \references{
 ftp://ftp.ncdc.noaa.gov/pub/data/noaa

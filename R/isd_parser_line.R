@@ -2,6 +2,8 @@
 #'
 #' @export
 #' @param x (character) a single ISD line
+#' @param additional (logical) include additional and remarks data sections
+#' in output. Default: \code{TRUE}
 #' @param as_data_frame (logical) output a tibble. Default: \code{FALSE}
 #' @references ftp://ftp.ncdc.noaa.gov/pub/data/noaa
 #' @return A tibble (data.frame)
@@ -18,9 +20,14 @@
 #' as_data_frame(
 #'  rbindlist(res, use.names = TRUE, fill = TRUE)
 #' )
-isd_parse_line <- function(x, as_data_frame = TRUE) {
-  if (!inherits(x, "character")) stop("'x' must be class character", call. = FALSE)
-  res <- each_line(x, sections = sections)
+#'
+#' # only control + mandatory sections
+#' isd_parse_line(lns[10], additional = FALSE)
+#' isd_parse_line(lns[10], additional = TRUE)
+isd_parse_line <- function(x, additional = TRUE, as_data_frame = TRUE) {
+  if (!inherits(x, "character")) stop("'x' must be class character",
+                                      call. = FALSE)
+  res <- each_line(x, additional = additional)
   res <- trans_vars(res)
   if (as_data_frame) tibble::as_data_frame(res) else res
 }

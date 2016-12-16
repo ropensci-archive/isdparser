@@ -4,11 +4,14 @@
 \alias{isd_parse}
 \title{Parse NOAA ISD/ISH data files}
 \usage{
-isd_parse(path, parallel = FALSE, cores = getOption("cl.cores", 2),
-  progress = FALSE)
+isd_parse(path, additional = TRUE, parallel = FALSE,
+  cores = getOption("cl.cores", 2), progress = FALSE)
 }
 \arguments{
 \item{path}{(character) file path. required}
+
+\item{additional}{(logical) include additional and remarks data sections
+in output. Default: \code{TRUE}}
 
 \item{parallel}{(logical). do processing in parallel. Default: \code{FALSE}}
 
@@ -32,6 +35,9 @@ path <- system.file('extdata/104270-99999-1928.gz', package = "isdparser")
 
 # with progress
 (res2 <- isd_parse(path, progress = TRUE))
+
+# only control + mandatory sections
+(res <- isd_parse(path, additional = FALSE))
 
 }
 \references{

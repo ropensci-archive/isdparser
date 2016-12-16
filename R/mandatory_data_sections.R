@@ -1,5 +1,5 @@
-# sections for mandatory data
-sections <- list(
+# sections for control data
+control_sections <- list(
   total_chars = list(start = 1,stop = 4),
   usaf_station = list(start = 5,stop = 10),
   wban_station = list(start = 11,stop = 15),
@@ -11,7 +11,11 @@ sections <- list(
   type_code = list(start = 42,stop = 46),
   elevation = list(start = 47,stop = 51),
   call_letter = list(start = 52,stop = 56),
-  quality = list(start = 57,stop = 60),
+  quality = list(start = 57,stop = 60)
+)
+
+# sections for mandatory data
+mandatory_sections <- list(
   wind_direction = list(start = 61,stop = 63),
   wind_direction_quality = list(start = 64,stop = 64),
   wind_code = list(start = 65,stop = 65),
@@ -32,3 +36,6 @@ sections <- list(
   air_pressure = list(start = 100,stop = 104),
   air_pressure_quality = list(start = 105,stop = 105)
 )
+
+# control + mandatory sections
+control_mand_secs <- c(control_sections, mandatory_sections)
