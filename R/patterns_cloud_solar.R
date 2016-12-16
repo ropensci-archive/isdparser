@@ -225,8 +225,8 @@ gp1 <- list(
   fun = function(x, code) {
     str_pieces(
       str_match_len(x, code, 34),
-      list(c(1,3),c(4,7),c(8,11),c(12,12),c(13,16),c(17,17),c(18,21),
-           c(22,22)),
+      list(c(1,3),c(4,7),c(8,11),c(12,12),c(13,16),c(17,20),c(21,22),
+           c(23,25),c(26,29),c(30,31),c(32,34)),
       c('modeled_solar_irradiance', 'time_period_min',
         'modeled_global_horizontal',
         'modeled_global_horizontal_source_flag',
