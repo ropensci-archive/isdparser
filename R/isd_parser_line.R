@@ -28,6 +28,5 @@ isd_parse_line <- function(x, additional = TRUE, as_data_frame = TRUE) {
   if (!inherits(x, "character")) stop("'x' must be class character",
                                       call. = FALSE)
   res <- each_line(x, additional = additional)
-  res <- trans_vars(res)
   if (as_data_frame) tibble::as_data_frame(res) else res
 }
