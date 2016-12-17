@@ -7,10 +7,10 @@ test_that("isd_parse", {
 
   expect_is(aa, "tbl_df")
   expect_is(aa, "data.frame")
-  expect_type(aa$total_chars, "double")
+  expect_type(aa$total_chars, "character")
   expect_type(aa$usaf_station, "character")
   expect_type(aa$wban_station, "character")
-  expect_type(aa$date, "double")
+  expect_type(aa$date, "character")
   expect_type(aa$time, "character")
 
   expect_equal(NCOL(aa), 42)
@@ -22,10 +22,10 @@ test_that("isd_parse - additional param works", {
 
   expect_is(aa, "tbl_df")
   expect_is(aa, "data.frame")
-  expect_type(aa$total_chars, "double")
+  expect_type(aa$total_chars, "character")
   expect_type(aa$usaf_station, "character")
   expect_type(aa$wban_station, "character")
-  expect_type(aa$date, "double")
+  expect_type(aa$date, "character")
   expect_type(aa$time, "character")
 
   expect_equal(NCOL(aa), 31)
