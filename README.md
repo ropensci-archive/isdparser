@@ -5,7 +5,7 @@ isdparser
 
 [![Build Status](https://travis-ci.org/ropensci/isdparser.svg?branch=master)](https://travis-ci.org/ropensci/isdparser)
 [![codecov.io](https://codecov.io/github/ropensci/isdparser/coverage.svg?branch=master)](https://codecov.io/github/ropensci/isdparser?branch=master)
-
+[![cran version](http://www.r-pkg.org/badges/version/isdparser)](https://cran.r-project.org/package=isdparser)
 
 `isdparser` is a parser for ISD/ISD NOAA files
 
@@ -151,4 +151,4 @@ isd_parse(path, parallel = TRUE)
 * Get citation information for `isdparser` in R doing `citation(package = 'isdparser')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-[![rofooter](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)

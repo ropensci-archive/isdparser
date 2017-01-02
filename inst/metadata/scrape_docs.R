@@ -47,8 +47,17 @@ for (i in seq_along(pos_starts)) {
 }
 
 library(dplyr)
-df <- bind_rows(out) %>% select(pos, field_length, min, max, units, scaling_factor, missing, dom)
+(df <- bind_rows(out) %>% select(pos, field_length, min, max, units, scaling_factor, missing, dom))
+
+# control + mandatory data sections
+df %>% filter(!is.na(pos)) %>% select(-field_length) %>% data.frame
+
+#
 df %>% filter(!is.na(scaling_factor))
 df %>% filter(!is.na(units))
 df %>% filter(!is.na(field_length))
 df %>% filter(!is.na(missing))
+
+
+# fixes
+df[df$pos == "28-28", ]
