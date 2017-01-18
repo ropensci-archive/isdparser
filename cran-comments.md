@@ -9,15 +9,20 @@
 0 errors | 0 warnings | 1 note
 
 
-
+   License components with restrictions and base license permitting such:
+     MIT + file LICENSE
+   File 'LICENSE':
+     YEAR: 2017
+     COPYRIGHT HOLDER: Scott Chamberlain
 
 ## Reverse dependencies
 
-* Xxxx 
+* Checked the 1 reverse dependency and there was no problem. 
 
 --- 
 
-This version adds xxx
+This version adds a new function for transforming data outputs,
+adds a new parameter to two functions, and fixes a bug.
 
 Thanks!
 Scott Chamberlain
