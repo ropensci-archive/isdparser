@@ -8,21 +8,16 @@
 
 0 errors | 0 warnings | 1 note
 
-* This is a new release.
+
 
 
 ## Reverse dependencies
 
-This is a new release, so there are no reverse dependencies.
+* Xxxx 
 
 --- 
 
-I have read and agree to the the CRAN policies at
-https://cran.r-project.org/web/packages/policies.html
-
-This is a re-submission of the first release to CRAN with 
-most examples not in \dontrun so they are run on check. One 
-example is still wrapped in \dontrun.
+This version adds xxx
 
 Thanks!
 Scott Chamberlain
