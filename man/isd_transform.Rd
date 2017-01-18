@@ -25,6 +25,22 @@ scaling factor (variable X may need to be multiplied by 1000 according
 to the ISD docs), and missing values (unfortunately, missing value
 standards vary across ISD data).
 }
+\section{operations performed}{
+
+\itemize{
+ \item scale latitude by factor of 1000
+ \item scale longitude by factor of 1000
+ \item scale elevation by factor of 10
+ \item scale wind speed by factor of 10
+ \item scale temperature by factor of 10
+ \item scale temperature dewpoint by factor of 10
+ \item scale air pressure by factor of 10
+ \item scale precipitation by factor of 10
+ \item convert date to a Date class with \code{\link{as.Date}}
+ \item change wind direction to numeric
+ \item change total characters to numeric
+}
+}
 \examples{
 path <- system.file('extdata/104270-99999-1928.gz', package = "isdparser")
 (res <- isd_parse(path))
@@ -37,9 +53,6 @@ isd_transform(res)
 # list
 (res <- isd_parse_line(lns[1], as_data_frame = FALSE))
 isd_transform(res)
-}
-\references{
-ftp://ftp.ncdc.noaa.gov/pub/data/noaa
 }
 \seealso{
 \code{\link{isd_parse}}, \code{\link{isd_parse_line}}
