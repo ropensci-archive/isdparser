@@ -7,17 +7,17 @@ Description: Tools for parsing 'NOAA' Integrated Surface Data ('ISD') files,
     though best coverage is in North America/Europe/Australia. Data is stored
     as variable length ASCII character strings, with most fields optional.
     Included are tools for parsing entire files, or individual lines of data.
-Version: 0.1.2.9590
+Version: 0.1.9.9100
 License: MIT + file LICENSE
 Encoding: UTF-8
 Authors@R: c(
     person("Scott", "Chamberlain", role = c("aut","cre"), email = "myrmecocystus@gmail.com")
   )
 URL: https://github.com/ropensci/isdparser
-BugReports: http://www.github.com/ropensci/isdparser/issues
+BugReports: https://github.com/ropensci/isdparser/issues
 Imports:
     tibble (>= 1.2),
-    data.table (>= 1.9.6)
+    data.table (>= 1.10.0)
 Suggests:
     roxygen2 (>= 5.0.1),
     testthat,
