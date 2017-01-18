@@ -39,6 +39,7 @@ Package API:
 * `isd_parse()` - parse all lines in a file, with parallel option
 * `isd_parse_line()` - parse a single line - you choose which lines to parse
 and how to apply the function to your lines
+* `isd_transform()` - transform ISD data variables
 
 
 ## Install
@@ -74,6 +75,13 @@ head(
   isd_parse_line(lns[1], as_data_frame = FALSE)
 )
 ```
+
+Optionally don't include "Additional" and "Remarks" sections in parsed output.
+
+```{r}
+isd_parse_line(lns[1], additional = FALSE)
+```
+
 
 ## Parse an ISD file
 
@@ -120,3 +128,12 @@ isd_parse(path, progress = TRUE)
 #> #   N03_original_value_text <chr>, N03_units_code <chr>, N03_parameter_code <chr>, REM_remarks <chr>,
 #> #   REM_identifier <chr>, REM_length_quantity <chr>, REM_comment <chr>
 ```
+
+### Additional data
+
+Optionally don't include "Additional" and "Remarks" sections in parsed output.
+
+```{r}
+isd_parse(path, additional = FALSE)
+```
+

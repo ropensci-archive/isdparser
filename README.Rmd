@@ -29,6 +29,7 @@ Documentation at ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ish-format-document.pdf
 * `isd_parse()` - parse all lines in a file, with parallel option
 * `isd_parse_line()` - parse a single line - you choose which lines to parse
 and how to apply the function to your lines
+* `isd_transform()` - transform ISD data variables
 
 ## Installation
 
