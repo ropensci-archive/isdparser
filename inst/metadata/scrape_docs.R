@@ -1,4 +1,4 @@
-##
+## functions
 by_line <- function(x) {
   on.exit(closeAllConnections())
   readLines(textConnection(x))
@@ -10,7 +10,19 @@ strex <- function(str, pattern) {
 
 `%||%` <- function(x, y) if (is.null(x) || length(x) == 0) y else x
 
-#
+fixit <- function(x, pos, col, replace) {
+  x <- dplyr::filter(x, !is.na(pos))
+  x <- as.data.frame(x)
+  x[x$pos == pos, col] <- replace
+  tibble::as_tibble(x)
+}
+
+trimit <- function(x) {
+  gsub("\\s\\s+", " ", gsub("^\\s+|\\s+$", "", x))
+}
+
+
+# scrape it
 library(pdftools)
 pdf <- pdftools::pdf_text("inst/isddocs/ish-format-document.pdf")
 
@@ -36,6 +48,21 @@ for (i in seq_along(pos_starts)) {
           gsub("\\s\\s+", " ", paste0(lns_sub[grep("DOM:", lns_sub)[1]:length(lns_sub)], collapse = ""))
         ) %||% NA
       }
+    },
+    description = {
+      tmp <- lns[pos_starts[i] + 2]
+      if (!grepl("[a-z]", tmp)) {
+        iter <- 2
+        while (!grepl("[a-z]", tmp)) {
+          iter <- iter + 1
+          tmp <- lns[pos_starts[i] + iter]
+        }
+      }
+      if (grepl("\\.$", tmp)) {
+        trimit(tmp)
+      } else {
+        trimit(paste0(c(tmp, lns[pos_starts[i] + 3]), collapse = " "))
+      }
     }
   )
   if (grepl("POS", lns_sub[1])) {
@@ -47,17 +74,28 @@ for (i in seq_along(pos_starts)) {
 }
 
 library(dplyr)
-(df <- bind_rows(out) %>% select(pos, field_length, min, max, units, scaling_factor, missing, dom))
+(df <- bind_rows(out) %>% select(pos, field_length, min, max, units, scaling_factor, missing, dom, description))
 
 # control + mandatory data sections
 df %>% filter(!is.na(pos)) %>% select(-field_length) %>% data.frame
 
-#
+# peeking at various issues
 df %>% filter(!is.na(scaling_factor))
 df %>% filter(!is.na(units))
 df %>% filter(!is.na(field_length))
 df %>% filter(!is.na(missing))
 
+# control + mandatory fixes
+cm <- dplyr::filter(df, !is.na(pos))
+cm <- as.data.frame(cm)
+cm[cm$pos == "28-28", "max"] <- "Z"
+cm[cm$pos == "77-77", "missing"] <- 9
+cm[cm$pos == "78-78", "missing"] <- 9
+cm[cm$pos == "79-84", "missing"] <- 999999
+df <- as_data_frame(bind_rows(cm, dplyr::filter(df, is.na(pos))))
 
-# fixes
-df[df$pos == "28-28", ]
+# additional data sections
+df %>% filter(is.na(pos)) %>% select(-dom) %>% data.frame %>% head(n = 50)
+## fixes
+## FLD LEN: 1 LIQUID-PRECIPITATION condition code
+

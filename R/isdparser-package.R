@@ -60,3 +60,106 @@
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @keywords package
 NULL
+
+#' NOAA ISD metadata data.frame
+#'
+#' This data.frame includes metadata describing all the data provided in ISD
+#' data files. And is used for transforming and scaling variables.
+#'
+#' The data.frame has the following columns:
+#'
+#' \itemize{
+#'  \item pos - (chr) position, if any
+#'  \item category - (chr) category, one of additional-data section,
+#'  control-data section, element quality data section, mandatory-data section,
+#'  original observation data section, or remarks data section
+#'  \item sub_category - (chr) sub category label, one of climate reference
+#'  network unique data, cloud and solar data, ground surface data, hail data,
+#'  marine data, network metadata, precipitation-data, pressure data,
+#'  runway visual range data, sea surface temperature, soil temperature data,
+#'  temperature data, weather occurrence data, weather-occurrence-data,
+#'  or wind data
+#'  \item abbrev - (chr) abbreviation, if any, NA for control and mandatory
+#'  sections
+#'  \item label - (chr) label, a top level label for the data, usually the
+#'  same as the abbreviation
+#'  \item sub_label - (chr) sub label, a more detailed label about the
+#'  variable
+#'  \item field_length - (int) field length, number of characters
+#'  \item min - (chr) minimum value, if applicable, original
+#'  \item min_numeric - (int) minimum value, if applicable, integer
+#'  \item max - (chr) maximum value, if applicable, original
+#'  \item max_numeric - (chr) maximum value, if applicable, integer
+#'  \item units - (chr) units, if applicable
+#'  \item scaling_factor - (chr) scaling factor, original
+#'  \item scaling_factor_numeric - (int) scaling factor, integer, one of
+#'  1, 10, 100, 1000, or NA
+#'  \item missing - (chr) value used to indicate missing data, original
+#'  \item missing_numeric - (int) value used to indicate missing data, integer,
+#'  one of 9, 99, 999, 9999, 99999, 999999, or NA
+#'  \item description - (chr) short description of variable
+#'  \item dom - (chr) long description of variable with categories
+#'  \item dom_parsed - (list) NA if no categries, or a named list with
+#'  category labels and their values
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @format A data frame with 643 rows and 18 columns
+#' @name isd_metadata
+NULL
+
+# file <- system.file("extdata/isd_metadata.csv", package = "isdparser")
+# ff <- readr::read_csv(file)
+# vapply(ff$dom, function(z) iconv(z, "latin1", "ASCII", sub = ""), "")
+# ff$dom <- vapply(ff$dom, function(z) {
+#   if (!stringi::stri_enc_isascii(z) && !is.na(z)) {
+#     iconv(z, "latin1", "ASCII", sub = "")
+#   } else {
+#     z
+#   }
+# }, "", USE.NAMES = FALSE)
+#
+# readr::write_csv(ff, "inst/extdata/isd_metadata.csv")
+
+# parse dom field
+# ff$dom[15]
+
+#(x <- ff$dom[19])
+# regmatches(x, gregexpr("[0-9]\\s=\\s([A-Za-z,]+\\s)+", x))
+
+#(x <- ff$dom[20])
+# regmatches(
+#   x,
+#   gregexpr("[0-9A-Z]\\s?(=?:?)\\s([A-Za-z,]+\\s)+", x))
+#
+#
+# regmatches(
+#   x,
+#   gregexpr("[0-9A-Za-z]\\s=\\s([0-9A-Za-z,\\(\\)-]+\\s)+|[0-9A-Za-z]:\\s([0-9A-Za-z,\\(\\)-]+\\s)+", x))
+#
+# trimit <- function(x) {
+#   gsub("\\s\\s+", " ", gsub("^\\s+|\\s+$", "", x))
+# }
+
+# foo(ff$dom[19])
+# foo(ff$dom[20])
+# foo(ff$dom[21])
+#
+# foo <- function(x) {
+#   starts <- gregexpr("[0-9A-Za-z]{1,7}\\s=|[0-9A-Za-z]{1,7}:\\s", x)[[1]]
+#   out <- c()
+#   for (i in seq_along(starts)) {
+#     end <- if (i == length(starts)) nchar(x) else (starts[i + 1] - 1)
+#     out[[i]] <- trimit(substring(x, starts[i], end))
+#   }
+#   unlist(lapply(out, function(w) {
+#     tmp <- trimit(strsplit(w, split = ":|=")[[1]])
+#     as.list(stats::setNames(tmp[2], tmp[1]))
+#   }), FALSE)
+# }
+#stats::setNames(vapply(out, "[[", "", "2"))
+#
+
+# ff$dom_parsed_json <- vapply(ff$dom_parsed, jsonlite::toJSON, "", auto_unbox = TRUE)
+# ff$dom_parsed <- lapply(ff$dom_parsed_json, jsonlite::fromJSON)
