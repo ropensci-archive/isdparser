@@ -39,6 +39,10 @@ path <- system.file('extdata/104270-99999-1928.gz', package = "isdparser")
 # only control + mandatory sections
 (res <- isd_parse(path, additional = FALSE))
 
+\dontrun{
+# in parallel
+(out <- isd_parse(path, parallel = TRUE))
+}
 }
 \references{
 ftp://ftp.ncdc.noaa.gov/pub/data/noaa
@@ -46,4 +50,3 @@ ftp://ftp.ncdc.noaa.gov/pub/data/noaa
 \seealso{
 \code{\link{isd_parse_line}}
 }
-

@@ -48,4 +48,3 @@ The data.frame has the following columns:
 }
 }
 \keyword{datasets}
-

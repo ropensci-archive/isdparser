@@ -2,8 +2,8 @@
 % Please edit documentation in R/isdparser-package.R
 \docType{package}
 \name{isdparser-package}
-\alias{isdparser}
 \alias{isdparser-package}
+\alias{isdparser}
 \title{Parse NOAA ISD Files}
 \description{
 Parse NOAA ISD Files
@@ -77,8 +77,8 @@ Although the data field allows for values to a thousandth of a degree,
 the values are often only computed to the hundredth of a degree with
 a 0 entered in the thousandth position.
 }
+
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \keyword{package}
-

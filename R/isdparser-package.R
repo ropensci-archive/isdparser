@@ -119,33 +119,7 @@ NULL
 #     z
 #   }
 # }, "", USE.NAMES = FALSE)
-#
-# readr::write_csv(ff, "inst/extdata/isd_metadata.csv")
 
-# parse dom field
-# ff$dom[15]
-
-#(x <- ff$dom[19])
-# regmatches(x, gregexpr("[0-9]\\s=\\s([A-Za-z,]+\\s)+", x))
-
-#(x <- ff$dom[20])
-# regmatches(
-#   x,
-#   gregexpr("[0-9A-Z]\\s?(=?:?)\\s([A-Za-z,]+\\s)+", x))
-#
-#
-# regmatches(
-#   x,
-#   gregexpr("[0-9A-Za-z]\\s=\\s([0-9A-Za-z,\\(\\)-]+\\s)+|[0-9A-Za-z]:\\s([0-9A-Za-z,\\(\\)-]+\\s)+", x))
-#
-# trimit <- function(x) {
-#   gsub("\\s\\s+", " ", gsub("^\\s+|\\s+$", "", x))
-# }
-
-# foo(ff$dom[19])
-# foo(ff$dom[20])
-# foo(ff$dom[21])
-#
 # foo <- function(x) {
 #   starts <- gregexpr("[0-9A-Za-z]{1,7}\\s=|[0-9A-Za-z]{1,7}:\\s", x)[[1]]
 #   out <- c()
@@ -158,8 +132,7 @@ NULL
 #     as.list(stats::setNames(tmp[2], tmp[1]))
 #   }), FALSE)
 # }
-#stats::setNames(vapply(out, "[[", "", "2"))
-#
 
+# ff$dom_parsed <- lapply(ff$dom, foo)
 # ff$dom_parsed_json <- vapply(ff$dom_parsed, jsonlite::toJSON, "", auto_unbox = TRUE)
 # ff$dom_parsed <- lapply(ff$dom_parsed_json, jsonlite::fromJSON)

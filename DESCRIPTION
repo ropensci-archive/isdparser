@@ -19,10 +19,10 @@ Imports:
     tibble (>= 1.2),
     data.table (>= 1.10.0)
 Suggests:
-    roxygen2 (>= 5.0.1),
+    roxygen2 (>= 6.0.1),
     testthat,
     rmarkdown,
     knitr,
     covr
 VignetteBuilder: knitr
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

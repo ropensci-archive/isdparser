@@ -41,6 +41,7 @@ standards vary across ISD data).
  \item change total characters to numeric
 }
 }
+
 \examples{
 path <- system.file('extdata/104270-99999-1928.gz', package = "isdparser")
 (res <- isd_parse(path))
@@ -57,4 +58,3 @@ isd_transform(res)
 \seealso{
 \code{\link{isd_parse}}, \code{\link{isd_parse_line}}
 }
-
