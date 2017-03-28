@@ -7,8 +7,12 @@ isdparser
 [![codecov.io](https://codecov.io/github/ropensci/isdparser/coverage.svg?branch=master)](https://codecov.io/github/ropensci/isdparser?branch=master)
 [![cran version](http://www.r-pkg.org/badges/version/isdparser)](https://cran.r-project.org/package=isdparser)
 
+## isdparser: Parse 'NOAA' Integrated Surface Data Files:
+`isdparser` is a parser for 'NOAA' Integrated Surface Data ('ISD') files, described at <https://www.ncdc.noaa.gov/isd>. ISD includes numerous parameters such as wind speed and direction, wind gust, temperature, dew point, cloud data, sea level pressure, altimeter setting, station pressure, present weather, visibility, precipitation amounts for various time periods, snow depth, and various other elements as observed by each station. Data is stored as variable length ASCII character strings, with most fields optional. Included are tools for parsing entire files, or individual lines of data.
 
-`isdparser` is a parser for ISD/ISD NOAA files
+### Coverage
+ISD is a global database, with data from approximately 35,000 stations worldwide, though the best spatial coverage is evident in North America, Europe, Australia, and parts of Asia. Coverage in the Northern Hemisphere is better than the Southern Hemisphere, and the overall period of record is currently 1901 to present.
+
 
 Code liberated from `rnoaa` to focus on ISD parsing since it's sorta
 complicated. Has minimal dependencies, so you can parse your ISD/ISH
@@ -84,19 +88,19 @@ head(
 )
 #> $total_chars
 #> [1] "0054"
-#> 
+#>
 #> $usaf_station
 #> [1] "024130"
-#> 
+#>
 #> $wban_station
 #> [1] "99999"
-#> 
+#>
 #> $date
 #> [1] "20160101"
-#> 
+#>
 #> $time
 #> [1] "0000"
-#> 
+#>
 #> $date_flag
 #> [1] "4"
 ```
