@@ -10,4 +10,4 @@ CONTRIBUTING.md
 ^issue_template\.md$
 inst/metadata
 ^revdep$
-
+.github
