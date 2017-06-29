@@ -13,7 +13,7 @@ test_that("isd_parse", {
   expect_type(aa$date, "character")
   expect_type(aa$time, "character")
 
-  expect_equal(NCOL(aa), 42)
+  expect_equal(NCOL(aa), 38)
   expect_true(any(grepl("REM", names(aa))))
 })
 

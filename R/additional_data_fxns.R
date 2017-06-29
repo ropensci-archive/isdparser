@@ -10,9 +10,15 @@ isd_patterns <- c(
 )
 
 proc_other <- function(x) {
-  # grepl all patterns
+  # grepl all patterns minus remarks
+  x_sans_rem <- substring(x, 1, regexpr("REM", x) - 1)
   found_patterns <- as.list(
-    all_patterns[vapply(all_patterns, grepl, logical(1), x = x)]
+    all_patterns[vapply(all_patterns, grepl, logical(1), x = x_sans_rem)]
+  )
+  # add remarks if found
+  found_patterns <- c(
+    found_patterns,
+    rem = if (grepl("REM", x)) "REM" else NULL
   )
 
   # extract just those that are found
@@ -53,4 +59,8 @@ str_pieces <- function(z, pieces, nms=NULL){
     substring(z, x[1], if (x[2] == 999) nchar(z) else x[2])
   })
   if (is.null(nms)) tmp else stats::setNames(tmp, nms)
+}
+
+strex <- function(str, pattern) {
+  regmatches(str, regexpr(pattern, str))
 }

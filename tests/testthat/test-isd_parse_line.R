@@ -13,7 +13,7 @@ test_that("isd_parse_line", {
   expect_type(aa$wban_station, "character")
   expect_type(aa$date, "character")
   expect_type(aa$time, "character")
-  expect_equal(NCOL(aa), 42)
+  expect_equal(NCOL(aa), 38)
   expect_true(any(grepl("REM", names(aa))))
 
   bb <- isd_parse_line(lns[1], as_data_frame = FALSE)
@@ -24,7 +24,7 @@ test_that("isd_parse_line", {
   expect_type(aa$wban_station, "character")
   expect_type(aa$date, "character")
   expect_type(aa$time, "character")
-  expect_equal(length(bb), 42)
+  expect_equal(length(bb), 38)
   expect_true(any(grepl("REM", names(bb))))
 })
 
