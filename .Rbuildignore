@@ -11,3 +11,4 @@ CONTRIBUTING.md
 inst/metadata
 ^revdep$
 .github
+^codemeta\.json$
