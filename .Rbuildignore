@@ -5,7 +5,7 @@ man-roxygen
 CONTRIBUTING.md
 .Rhistory
 ^README\.Rmd$
-^CONDUCT\.md$
+^CODE_OF_CONDUCT\.md$
 ^cran-comments\.md$
 ^issue_template\.md$
 inst/metadata
