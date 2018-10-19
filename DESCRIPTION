@@ -7,7 +7,7 @@ Description: Tools for parsing 'NOAA' Integrated Surface Data ('ISD') files,
     though best coverage is in North America/Europe/Australia. Data is stored
     as variable length ASCII character strings, with most fields optional.
     Included are tools for parsing entire files, or individual lines of data.
-Version: 0.2.1.9200
+Version: 0.3.0
 License: MIT + file LICENSE
 Encoding: UTF-8
 Authors@R: c(
@@ -28,3 +28,6 @@ Suggests:
     rmarkdown,
     knitr
 RoxygenNote: 6.1.0
+X-schema.org-applicationCategory: Climate
+X-schema.org-keywords: climate, NOAA, data, ISD, stations
+X-schema.org-isPartOf: https://ropensci.org
