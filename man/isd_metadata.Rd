@@ -4,12 +4,14 @@
 \name{isd_metadata}
 \alias{isd_metadata}
 \title{NOAA ISD metadata data.frame}
-\format{A data frame with 643 rows and 18 columns}
+\format{A data frame with 643 rows and 19 columns}
 \description{
 This data.frame includes metadata describing all the data provided in ISD
 data files. And is used for transforming and scaling variables.
 }
 \details{
+Original csv data is in inst/extdata/isd_metadata.csv, collected from
+
 The data.frame has the following columns:
 
 \itemize{
@@ -43,7 +45,7 @@ The data.frame has the following columns:
  one of 9, 99, 999, 9999, 99999, 999999, or NA
  \item description - (chr) short description of variable
  \item dom - (chr) long description of variable with categories
- \item dom_parsed - (list) NA if no categries, or a named list with
+ \item dom_parsed_json - (list) NA if no categries, or a named list with
  category labels and their values
 }
 }
