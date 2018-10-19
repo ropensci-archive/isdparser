@@ -1,5 +1,4 @@
 #' Parse NOAA ISD Files
-#' Parse NOAA ISD Files
 #'
 #' @section Data format:
 #' Each record (data.frame row or individual list element) you get via
