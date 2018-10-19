@@ -9,6 +9,7 @@ CONTRIBUTING.md
 ^cran-comments\.md$
 ^issue_template\.md$
 inst/metadata
+inst/isddocs
 ^revdep$
 .github
 ^codemeta\.json$

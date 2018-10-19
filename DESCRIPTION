@@ -17,6 +17,8 @@ Authors@R: c(
   )
 URL: https://github.com/ropensci/isdparser
 BugReports: https://github.com/ropensci/isdparser/issues
+LazyData: true
+VignetteBuilder: knitr
 Imports:
     tibble (>= 1.2),
     data.table (>= 1.10.0)
@@ -25,5 +27,4 @@ Suggests:
     testthat,
     rmarkdown,
     knitr
-VignetteBuilder: knitr
 RoxygenNote: 6.1.0
