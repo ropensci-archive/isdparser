@@ -1,3 +1,15 @@
+isdparser 0.3.0
+===============
+
+### MINOR IMPROVEMENTS
+
+* towards working on integrating metadata for each of the data fields, we've incorporated a data.frame of metadata into the package. see `?isd_metadata`. eventually we'd like to allow conversions and such on the data based on units (#12)
+
+### BUG FIXES
+
+* fix to internal parsing of string; first remove REM section from the ADD section so that codes in REM that happen to match those in ADD aren't detected spuriously (#15) thanks @ezwelty
+
+
 isdparser 0.2.0
 ===============
 

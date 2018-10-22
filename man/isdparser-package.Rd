@@ -4,10 +4,8 @@
 \name{isdparser-package}
 \alias{isdparser-package}
 \alias{isdparser}
-\title{Parse NOAA ISD Files
-Parse NOAA ISD Files}
+\title{Parse NOAA ISD Files}
 \description{
-Parse NOAA ISD Files
 Parse NOAA ISD Files
 }
 \section{Data format}{

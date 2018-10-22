@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.3.2
-* ubuntu 12.04 (on travis-ci), R 3.3.2
+* local OS X install, R 3.5.1 Patched
+* ubuntu 14.04 (on travis-ci), R 3.5.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -12,7 +12,7 @@
    License components with restrictions and base license permitting such:
      MIT + file LICENSE
    File 'LICENSE':
-     YEAR: 2017
+     YEAR: 2018
      COPYRIGHT HOLDER: Scott Chamberlain
 
 ## Reverse dependencies
@@ -21,8 +21,7 @@
 
 --- 
 
-This version adds a new function for transforming data outputs,
-adds a new parameter to two functions, and fixes a bug.
+This version fixes a bug and adds some metadata.
 
 Thanks!
 Scott Chamberlain
