@@ -13,3 +13,4 @@ inst/isddocs
 ^revdep$
 .github
 ^codemeta\.json$
+Makefile
