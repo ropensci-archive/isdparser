@@ -64,7 +64,7 @@ isd_parse_line(lns[1])
 #>   total_chars usaf_station wban_station date  time  date_flag latitude
 #>   <chr>       <chr>        <chr>        <chr> <chr> <chr>     <chr>   
 #> 1 0054        024130       99999        2016… 0000  4         +60750  
-#> # ... with 31 more variables: longitude <chr>, type_code <chr>,
+#> # … with 31 more variables: longitude <chr>, type_code <chr>,
 #> #   elevation <chr>, call_letter <chr>, quality <chr>,
 #> #   wind_direction <chr>, wind_direction_quality <chr>, wind_code <chr>,
 #> #   wind_speed <chr>, wind_speed_quality <chr>, ceiling_height <chr>,
@@ -127,7 +127,7 @@ isd_parse(path)
 #>  8 0039        024130       99999        2016… 0700  4         +60750  
 #>  9 0054        024130       99999        2016… 0800  4         +60750  
 #> 10 0054        024130       99999        2016… 0900  4         +60750  
-#> # ... with 2,591 more rows, and 31 more variables: longitude <chr>,
+#> # … with 2,591 more rows, and 31 more variables: longitude <chr>,
 #> #   type_code <chr>, elevation <chr>, call_letter <chr>, quality <chr>,
 #> #   wind_direction <chr>, wind_direction_quality <chr>, wind_code <chr>,
 #> #   wind_speed <chr>, wind_speed_quality <chr>, ceiling_height <chr>,
@@ -157,6 +157,8 @@ isd_parse(path, parallel = TRUE)
 * Please [report any issues or bugs](https://github.com/ropensci/isdparser/issues).
 * License: MIT
 * Get citation information for `isdparser` in R doing `citation(package = 'isdparser')`
-* Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+* Please note that this project is released with a [Contributor Code of Conduct][coc]. By participating in this project you agree to abide by its terms.
 
 [![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
+
+[coc]: https://github.com/ropensci/isdparser/blob/master/CODE_OF_CONDUCT.md
