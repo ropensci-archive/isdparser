@@ -17,7 +17,7 @@
 #' res <- lapply(lns[1:1000], isd_parse_line)
 #' library("data.table")
 #' library("tibble")
-#' as_data_frame(
+#' as_tibble(
 #'  rbindlist(res, use.names = TRUE, fill = TRUE)
 #' )
 #'
@@ -28,5 +28,5 @@ isd_parse_line <- function(x, additional = TRUE, as_data_frame = TRUE) {
   if (!inherits(x, "character")) stop("'x' must be class character",
                                       call. = FALSE)
   res <- each_line(x, additional = additional)
-  if (as_data_frame) tibble::as_data_frame(res) else res
+  if (as_data_frame) tibble::as_tibble(res) else res
 }

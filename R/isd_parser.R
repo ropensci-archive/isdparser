@@ -56,5 +56,5 @@ isd_parse <- function(path, additional = TRUE, parallel = FALSE,
   df <- data.table::setDF(
     data.table::rbindlist(linesproc, fill = TRUE, use.names = TRUE)
   )
-  tibble::as_data_frame(df)
+  tibble::as_tibble(df)
 }
