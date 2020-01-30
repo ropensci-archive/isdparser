@@ -55,6 +55,7 @@
 #' a 0 entered in the thousandth position.
 #'
 #' @name isdparser-package
+#' @import data.table 
 #' @aliases isdparser
 #' @docType package
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}

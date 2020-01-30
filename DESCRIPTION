@@ -7,7 +7,7 @@ Description: Tools for parsing 'NOAA' Integrated Surface Data ('ISD') files,
     though best coverage is in North America/Europe/Australia. Data is stored
     as variable length ASCII character strings, with most fields optional.
     Included are tools for parsing entire files, or individual lines of data.
-Version: 0.3.0.9100
+Version: 0.3.3.92
 License: MIT + file LICENSE
 Encoding: UTF-8
 Authors@R: c(
