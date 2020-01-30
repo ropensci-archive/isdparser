@@ -7,7 +7,7 @@ Description: Tools for parsing 'NOAA' Integrated Surface Data ('ISD') files,
     though best coverage is in North America/Europe/Australia. Data is stored
     as variable length ASCII character strings, with most fields optional.
     Included are tools for parsing entire files, or individual lines of data.
-Version: 0.3.3.92
+Version: 0.3.3.93
 License: MIT + file LICENSE
 Encoding: UTF-8
 Authors@R: c(
@@ -15,7 +15,8 @@ Authors@R: c(
     email = "myrmecocystus@gmail.com",
     comment = c(ORCID = "0000-0003-1444-9135"))
   )
-URL: https://docs.ropensci.org/isdparser, https://github.com/ropensci/isdparser
+URL: https://docs.ropensci.org/isdparser (docs)
+    https://github.com/ropensci/isdparser (devel)
 BugReports: https://github.com/ropensci/isdparser/issues
 LazyData: true
 VignetteBuilder: knitr
