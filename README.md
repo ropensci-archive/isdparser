@@ -31,6 +31,7 @@ Documentation at ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ish-format-document.pdf
 * `isd_parse_line()` - parse a single line - you choose which lines to parse
 and how to apply the function to your lines
 * `isd_transform()` - transform ISD data variables
+* `isd_parse_csv()` - parse csv format files
 
 ## Installation
 
@@ -45,7 +46,7 @@ Dev version
 
 
 ```r
-devtools::install_github("ropensci/isdparser")
+remotes::install_github("ropensci/isdparser")
 ```
 
 
@@ -61,13 +62,13 @@ path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
 lns <- readLines(path, encoding = "latin1")
 isd_parse_line(lns[1])
 #> # A tibble: 1 x 38
-#>   total_chars usaf_station wban_station date  time  date_flag latitude
-#>   <chr>       <chr>        <chr>        <chr> <chr> <chr>     <chr>   
-#> 1 0054        024130       99999        2016… 0000  4         +60750  
-#> # … with 31 more variables: longitude <chr>, type_code <chr>,
-#> #   elevation <chr>, call_letter <chr>, quality <chr>,
-#> #   wind_direction <chr>, wind_direction_quality <chr>, wind_code <chr>,
-#> #   wind_speed <chr>, wind_speed_quality <chr>, ceiling_height <chr>,
+#>   total_chars usaf_station wban_station date  time  date_flag latitude longitude
+#>   <chr>       <chr>        <chr>        <chr> <chr> <chr>     <chr>    <chr>    
+#> 1 0054        024130       99999        2016… 0000  4         +60750   +012767  
+#> # … with 30 more variables: type_code <chr>, elevation <chr>,
+#> #   call_letter <chr>, quality <chr>, wind_direction <chr>,
+#> #   wind_direction_quality <chr>, wind_code <chr>, wind_speed <chr>,
+#> #   wind_speed_quality <chr>, ceiling_height <chr>,
 #> #   ceiling_height_quality <chr>, ceiling_height_determination <chr>,
 #> #   ceiling_height_cavok <chr>, visibility_distance <chr>,
 #> #   visibility_distance_quality <chr>, visibility_code <chr>,
@@ -77,9 +78,8 @@ isd_parse_line(lns[1])
 #> #   air_pressure_quality <chr>,
 #> #   AW1_present_weather_observation_identifier <chr>,
 #> #   AW1_automated_atmospheric_condition_code <chr>,
-#> #   AW1_quality_automated_atmospheric_condition_code <chr>,
-#> #   REM_remarks <chr>, REM_identifier <chr>, REM_length_quantity <chr>,
-#> #   REM_comment <chr>
+#> #   AW1_quality_automated_atmospheric_condition_code <chr>, REM_remarks <chr>,
+#> #   REM_identifier <chr>, REM_length_quantity <chr>, REM_comment <chr>
 ```
 
 Or, give back a list
@@ -140,9 +140,8 @@ isd_parse(path)
 #> #   air_pressure_quality <chr>,
 #> #   AW1_present_weather_observation_identifier <chr>,
 #> #   AW1_automated_atmospheric_condition_code <chr>,
-#> #   AW1_quality_automated_atmospheric_condition_code <chr>,
-#> #   REM_remarks <chr>, REM_identifier <chr>, REM_length_quantity <chr>,
-#> #   REM_comment <chr>
+#> #   AW1_quality_automated_atmospheric_condition_code <chr>, REM_remarks <chr>,
+#> #   REM_identifier <chr>, REM_length_quantity <chr>, REM_comment <chr>
 ```
 
 process in parallel
