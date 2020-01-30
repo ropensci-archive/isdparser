@@ -10,13 +10,16 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![cran checks](https://cranchecks.info/badges/worst/isdparser)](https://cranchecks.info/pkgs/isdparser)
 [![Build Status](https://travis-ci.org/ropensci/isdparser.svg?branch=master)](https://travis-ci.org/ropensci/isdparser)
 [![codecov.io](https://codecov.io/github/ropensci/isdparser/coverage.svg?branch=master)](https://codecov.io/github/ropensci/isdparser?branch=master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/isdparser?color=C9A115)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/isdparser)](https://cran.r-project.org/package=isdparser)
+
+Parse NOAA Integrated Surface Data Files
+
+Documentation at https://docs.ropensci.org/isdparser
 
 ## isdparser: Parse 'NOAA' Integrated Surface Data Files:
 `isdparser` is a parser for 'NOAA' Integrated Surface Data ('ISD') files, described at <https://www.ncdc.noaa.gov/isd>. ISD includes numerous parameters such as wind speed and direction, wind gust, temperature, dew point, cloud data, sea level pressure, altimeter setting, station pressure, present weather, visibility, precipitation amounts for various time periods, snow depth, and various other elements as observed by each station. Data is stored as variable length ASCII character strings, with most fields optional. Included are tools for parsing entire files, or individual lines of data.
@@ -40,6 +43,13 @@ and how to apply the function to your lines
 * `isd_transform()` - transform ISD data variables
 * `isd_parse_csv()` - parse csv format files
 
+`isd_parse_csv()` parses NOAA ISD csv files, whereas `isd_parse()` and `isd_parse_line()`
+both handle compressed files where each row of data is a string that needs to be parsed.
+
+`isd_parse_csv()` is faster than `isd_parse()` because parsing each line takes some
+time - although using `isd_parse(parallel = TRUE)` option gets closer to the speed of
+`isd_parse_csv()`.
+
 ## Installation
 
 CRAN stable version
@@ -58,23 +68,16 @@ remotes::install_github("ropensci/isdparser")
 library('isdparser')
 ```
 
-### Parse lines from an ISD file
+## isd_parse_csv: parse a CSV file
+
+Using a csv file included in the package:
 
 ```{r}
-path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
-lns <- readLines(path, encoding = "latin1")
-isd_parse_line(lns[1])
+path <- system.file('extdata/00702699999.csv', package = "isdparser")
+isd_parse_csv(path)
 ```
 
-Or, give back a list
-
-```{r}
-head(
-  isd_parse_line(lns[1], as_data_frame = FALSE)
-)
-```
-
-### Parse an ISD file
+### isd_parse: parse a file with ASCII strings
 
 ```{r}
 path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")

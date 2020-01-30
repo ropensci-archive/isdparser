@@ -41,6 +41,13 @@ and how to apply the function to your lines
 * `isd_transform()` - transform ISD data variables
 * `isd_parse_csv()` - parse csv format files
 
+`isd_parse_csv()` parses NOAA ISD csv files, whereas `isd_parse()` and `isd_parse_line()`
+both handle compressed files where each row of data is a string that needs to be parsed.
+
+`isd_parse_csv()` is faster than `isd_parse()` because parsing each line takes some
+time - although using `isd_parse(parallel = TRUE)` option gets closer to the speed of
+`isd_parse_csv()`.
+
 
 ## Install
 
@@ -53,14 +60,36 @@ install.packages("isdparser")
 Dev version
 
 ```{r eval=FALSE}
-remotes::install_github(c("ropensci/isdparser"))
+remotes::install_github("ropensci/isdparser")
 ```
 
 ```{r}
 library("isdparser")
 ```
 
-## Parse lines from an ISD file
+## isd_parse_csv: parse a CSV file
+
+Using a csv file included in the package:
+
+```{r}
+path <- system.file('extdata/00702699999.csv', package = "isdparser")
+isd_parse_csv(path)
+```
+
+Download a file first:
+
+```{r}
+path <- file.path(tempdir(), "00702699999.csv")
+x <- "https://www.ncei.noaa.gov/data/global-hourly/access/2017/00702699999.csv"
+download.file(x, path)
+isd_parse_csv(path)
+```
+
+```{r echo=FALSE}
+unlink(path)
+```
+
+## isd_parse_line: parse lines from an ASCII strings file
 
 ```{r}
 path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
@@ -83,9 +112,14 @@ isd_parse_line(lns[1], additional = FALSE)
 ```
 
 
-## Parse an ISD file
+## isd_parse: parse an ASCII strings file
+
+Downloading a new file
 
 ```{r}
+path <- file.path(tempdir(), "007026-99999-2017.gz")
+y <- "ftp://ftp.ncdc.noaa.gov/pub/data/noaa/2017/007026-99999-2017.gz"
+download.file(y, path)
 isd_parse(path)
 ```
 
