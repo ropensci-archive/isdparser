@@ -40,6 +40,32 @@ header `tmp`
 \examples{
 path <- system.file('extdata/00702699999.csv', package = "isdparser")
 (res <- isd_parse_csv(path))
+
+# isd_parse_csv compared to isd_parse
+if (interactive()) {
+x="https://www.ncei.noaa.gov/data/global-hourly/access/2017/00702699999.csv"
+download.file(x, (f_csv=file.path(tempdir(), "00702699999.csv")))
+y="ftp://ftp.ncdc.noaa.gov/pub/data/noaa/2017/007026-99999-2017.gz"
+download.file(y, (f_gz=file.path(tempdir(), "007026-99999-2017.gz")))
+from_csv <- isd_parse_csv(f_csv)
+from_gz <- isd_parse(f_gz, parallel = TRUE)
+
+x="https://www.ncei.noaa.gov/data/global-hourly/access/1913/02982099999.csv"
+download.file(x, (f=file.path(tempdir(), "02982099999.csv")))
+isd_parse_csv(f)
+
+x="https://www.ncei.noaa.gov/data/global-hourly/access/1923/02970099999.csv"
+download.file(x, (f=file.path(tempdir(), "02970099999.csv")))
+isd_parse_csv(f)
+
+x="https://www.ncei.noaa.gov/data/global-hourly/access/1945/04390099999.csv"
+download.file(x, (f=file.path(tempdir(), "04390099999.csv")))
+isd_parse_csv(f)
+
+x="https://www.ncei.noaa.gov/data/global-hourly/access/1976/02836099999.csv"
+download.file(x, (f=file.path(tempdir(), "02836099999.csv")))
+isd_parse_csv(f)
+}
 }
 \references{
 https://www.ncei.noaa.gov/data/global-hourly/access/

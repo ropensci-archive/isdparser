@@ -4,8 +4,13 @@
 \alias{isd_parse}
 \title{Parse NOAA ISD/ISH data files}
 \usage{
-isd_parse(path, additional = TRUE, parallel = FALSE,
-  cores = getOption("cl.cores", 2), progress = FALSE)
+isd_parse(
+  path,
+  additional = TRUE,
+  parallel = FALSE,
+  cores = getOption("cl.cores", 2),
+  progress = FALSE
+)
 }
 \arguments{
 \item{path}{(character) file path. required}

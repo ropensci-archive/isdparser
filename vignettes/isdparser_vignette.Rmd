@@ -40,6 +40,7 @@ Package API:
 * `isd_parse_line()` - parse a single line - you choose which lines to parse
 and how to apply the function to your lines
 * `isd_transform()` - transform ISD data variables
+* `isd_parse_csv()` - parse csv format files
 
 
 ## Install
@@ -53,7 +54,7 @@ install.packages("isdparser")
 Dev version
 
 ```{r eval=FALSE}
-devtools::install_github(c("ropensci/isdparser"))
+remotes::install_github(c("ropensci/isdparser"))
 ```
 
 ```{r}

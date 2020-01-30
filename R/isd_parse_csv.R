@@ -29,6 +29,7 @@
 #' (res <- isd_parse_csv(path))
 #' 
 #' # isd_parse_csv compared to isd_parse
+#' if (interactive()) {
 #' x="https://www.ncei.noaa.gov/data/global-hourly/access/2017/00702699999.csv"
 #' download.file(x, (f_csv=file.path(tempdir(), "00702699999.csv")))
 #' y="ftp://ftp.ncdc.noaa.gov/pub/data/noaa/2017/007026-99999-2017.gz"
@@ -51,6 +52,7 @@
 #' x="https://www.ncei.noaa.gov/data/global-hourly/access/1976/02836099999.csv"
 #' download.file(x, (f=file.path(tempdir(), "02836099999.csv")))
 #' isd_parse_csv(f)
+#' }
 isd_parse_csv <- function(path) {
   assert(path, "character")
   if (!file.exists(path)) stop("file not found", call. = FALSE)

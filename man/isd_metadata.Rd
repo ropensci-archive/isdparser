@@ -12,6 +12,7 @@ data files. And is used for transforming and scaling variables.
 \details{
 Original csv data is in inst/extdata/isd_metadata.csv, collected from
 
+
 The data.frame has the following columns:
 
 \itemize{

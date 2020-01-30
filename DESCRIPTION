@@ -21,13 +21,13 @@ LazyData: true
 VignetteBuilder: knitr
 Imports:
     tibble (>= 1.2),
-    data.table (>= 1.10.0)
+    data.table (>= 1.10.0),
+    lubridate
 Suggests:
-    roxygen2 (>= 6.1.1),
     testthat,
     rmarkdown,
     knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 X-schema.org-applicationCategory: Climate
 X-schema.org-keywords: climate, NOAA, data, ISD, stations
 X-schema.org-isPartOf: https://ropensci.org
