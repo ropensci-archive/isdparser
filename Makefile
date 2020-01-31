@@ -26,3 +26,8 @@ test:
 
 readme:
 	${RSCRIPT} -e "knitr::knit('README.Rmd')"
+
+vign:
+	cd vignettes;\
+	${RSCRIPT} -e "knitr::knit('isdparser.Rmd.og', output = 'isdparser.Rmd')"
+	cd ..

@@ -1,7 +1,7 @@
 ---
 title: "Introduction to the isdparser package"
 author: "Scott Chamberlain"
-date: "`r Sys.Date()`"
+date: "2020-01-31"
 output:
   html_document:
     toc: true
@@ -12,17 +12,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r echo=FALSE}
-NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
-knitr::opts_chunk$set(
-  comment = "#>",
-  collapse = TRUE,
-  warning = FALSE,
-  message = FALSE,
-  purl = NOT_CRAN,
-  eval = NOT_CRAN
-)
-```
+
 
 `isdparser` is an parser for ISD/ISD NOAA files
 
@@ -53,17 +43,20 @@ time - although using `isd_parse(parallel = TRUE)` option gets closer to the spe
 
 Stable from CRAN
 
-```{r eval=FALSE}
+
+```r
 install.packages("isdparser")
 ```
 
 Dev version
 
-```{r eval=FALSE}
+
+```r
 remotes::install_github("ropensci/isdparser")
 ```
 
-```{r}
+
+```r
 library("isdparser")
 ```
 
@@ -71,44 +64,178 @@ library("isdparser")
 
 Using a csv file included in the package:
 
-```{r}
+
+```r
 path <- system.file('extdata/00702699999.csv', package = "isdparser")
 isd_parse_csv(path)
+#> # A tibble: 6,843 x 68
+#>    station date                source latitude longitude elevation name 
+#>      <int> <dttm>               <int>    <dbl>     <dbl>     <dbl> <chr>
+#>  1  7.03e8 2017-02-10 14:04:00      4        0         0      7026 WXPO…
+#>  2  7.03e8 2017-02-10 14:14:00      4        0         0      7026 WXPO…
+#>  3  7.03e8 2017-02-10 14:19:00      4        0         0      7026 WXPO…
+#>  4  7.03e8 2017-02-10 14:24:00      4        0         0      7026 WXPO…
+#>  5  7.03e8 2017-02-10 14:29:00      4        0         0      7026 WXPO…
+#>  6  7.03e8 2017-02-10 14:34:00      4        0         0      7026 WXPO…
+#>  7  7.03e8 2017-02-10 14:39:00      4        0         0      7026 WXPO…
+#>  8  7.03e8 2017-02-10 14:44:00      4        0         0      7026 WXPO…
+#>  9  7.03e8 2017-02-10 14:49:00      4        0         0      7026 WXPO…
+#> 10  7.03e8 2017-02-10 14:54:00      4        0         0      7026 WXPO…
+#> # … with 6,833 more rows, and 61 more variables: report_type <chr>,
+#> #   call_sign <int>, quality_control <chr>, wnd <chr>, cig <chr>, vis <chr>,
+#> #   tmp <chr>, dew <chr>, slp <chr>, wind_direction <chr>,
+#> #   wind_direction_quality <chr>, wind_code <chr>, wind_speed <chr>,
+#> #   wind_speed_quality <chr>, ceiling_height <chr>,
+#> #   ceiling_height_quality <chr>, ceiling_height_determination <chr>,
+#> #   ceiling_height_cavok <chr>, visibility_distance <chr>,
+#> #   visibility_distance_quality <chr>, visibility_code <chr>,
+#> #   visibility_code_quality <chr>, temperature <chr>,
+#> #   temperature_quality <chr>, temperature_dewpoint <chr>,
+#> #   temperature_dewpoint_quality <chr>, air_pressure <chr>,
+#> #   air_pressure_quality <chr>, automated_atmospheric_condition_code <chr>,
+#> #   quality_automated_atmospheric_condition_code <chr>, coverage_code <chr>,
+#> #   coverage_quality_code <chr>, base_height_dimension <chr>,
+#> #   base_height_quality_code <chr>, cloud_type_code <chr>,
+#> #   cloud_type_quality_code <chr>, connective_cloud_attribute <chr>,
+#> #   vertical_datum_attribute <chr>, base_height_upper_range_attribute <chr>,
+#> #   base_height_lower_range_attribute <chr>, coverage <chr>,
+#> #   opaque_coverage <chr>, coverage_quality <chr>, lowest_cover <chr>,
+#> #   lowest_cover_quality <chr>, low_cloud_genus <chr>,
+#> #   low_cloud_genus_quality <chr>, lowest_cloud_base_height <chr>,
+#> #   lowest_cloud_base_height_quality <chr>, mid_cloud_genus <chr>,
+#> #   mid_cloud_genus_quality <chr>, high_cloud_genus <chr>,
+#> #   high_cloud_genus_quality <chr>, altimeter_setting_rate <chr>,
+#> #   altimeter_quality_code <chr>, station_pressure_rate <chr>,
+#> #   station_pressure_quality_code <chr>, speed_rate <chr>, quality_code <chr>,
+#> #   rem <chr>, eqd <chr>
 ```
 
 Download a file first:
 
-```{r}
+
+```r
 path <- file.path(tempdir(), "00702699999.csv")
 x <- "https://www.ncei.noaa.gov/data/global-hourly/access/2017/00702699999.csv"
 download.file(x, path)
 isd_parse_csv(path)
+#> # A tibble: 6,843 x 68
+#>    station date                source latitude longitude elevation name 
+#>      <int> <dttm>               <int>    <dbl>     <dbl>     <dbl> <chr>
+#>  1  7.03e8 2017-02-10 14:04:00      4        0         0      7026 WXPO…
+#>  2  7.03e8 2017-02-10 14:14:00      4        0         0      7026 WXPO…
+#>  3  7.03e8 2017-02-10 14:19:00      4        0         0      7026 WXPO…
+#>  4  7.03e8 2017-02-10 14:24:00      4        0         0      7026 WXPO…
+#>  5  7.03e8 2017-02-10 14:29:00      4        0         0      7026 WXPO…
+#>  6  7.03e8 2017-02-10 14:34:00      4        0         0      7026 WXPO…
+#>  7  7.03e8 2017-02-10 14:39:00      4        0         0      7026 WXPO…
+#>  8  7.03e8 2017-02-10 14:44:00      4        0         0      7026 WXPO…
+#>  9  7.03e8 2017-02-10 14:49:00      4        0         0      7026 WXPO…
+#> 10  7.03e8 2017-02-10 14:54:00      4        0         0      7026 WXPO…
+#> # … with 6,833 more rows, and 61 more variables: report_type <chr>,
+#> #   call_sign <int>, quality_control <chr>, wnd <chr>, cig <chr>, vis <chr>,
+#> #   tmp <chr>, dew <chr>, slp <chr>, wind_direction <chr>,
+#> #   wind_direction_quality <chr>, wind_code <chr>, wind_speed <chr>,
+#> #   wind_speed_quality <chr>, ceiling_height <chr>,
+#> #   ceiling_height_quality <chr>, ceiling_height_determination <chr>,
+#> #   ceiling_height_cavok <chr>, visibility_distance <chr>,
+#> #   visibility_distance_quality <chr>, visibility_code <chr>,
+#> #   visibility_code_quality <chr>, temperature <chr>,
+#> #   temperature_quality <chr>, temperature_dewpoint <chr>,
+#> #   temperature_dewpoint_quality <chr>, air_pressure <chr>,
+#> #   air_pressure_quality <chr>, automated_atmospheric_condition_code <chr>,
+#> #   quality_automated_atmospheric_condition_code <chr>, coverage_code <chr>,
+#> #   coverage_quality_code <chr>, base_height_dimension <chr>,
+#> #   base_height_quality_code <chr>, cloud_type_code <chr>,
+#> #   cloud_type_quality_code <chr>, connective_cloud_attribute <chr>,
+#> #   vertical_datum_attribute <chr>, base_height_upper_range_attribute <chr>,
+#> #   base_height_lower_range_attribute <chr>, coverage <chr>,
+#> #   opaque_coverage <chr>, coverage_quality <chr>, lowest_cover <chr>,
+#> #   lowest_cover_quality <chr>, low_cloud_genus <chr>,
+#> #   low_cloud_genus_quality <chr>, lowest_cloud_base_height <chr>,
+#> #   lowest_cloud_base_height_quality <chr>, mid_cloud_genus <chr>,
+#> #   mid_cloud_genus_quality <chr>, high_cloud_genus <chr>,
+#> #   high_cloud_genus_quality <chr>, altimeter_setting_rate <chr>,
+#> #   altimeter_quality_code <chr>, station_pressure_rate <chr>,
+#> #   station_pressure_quality_code <chr>, speed_rate <chr>, quality_code <chr>,
+#> #   rem <chr>, eqd <chr>
 ```
 
-```{r echo=FALSE}
-unlink(path)
-```
+
 
 ## isd_parse_line: parse lines from an ASCII strings file
 
-```{r}
+
+```r
 path <- system.file('extdata/024130-99999-2016.gz', package = "isdparser")
 lns <- readLines(path, encoding = "latin1")
 isd_parse_line(lns[1])
+#> # A tibble: 1 x 38
+#>   total_chars usaf_station wban_station date  time  date_flag latitude longitude
+#>   <chr>       <chr>        <chr>        <chr> <chr> <chr>     <chr>    <chr>    
+#> 1 0054        024130       99999        2016… 0000  4         +60750   +012767  
+#> # … with 30 more variables: type_code <chr>, elevation <chr>,
+#> #   call_letter <chr>, quality <chr>, wind_direction <chr>,
+#> #   wind_direction_quality <chr>, wind_code <chr>, wind_speed <chr>,
+#> #   wind_speed_quality <chr>, ceiling_height <chr>,
+#> #   ceiling_height_quality <chr>, ceiling_height_determination <chr>,
+#> #   ceiling_height_cavok <chr>, visibility_distance <chr>,
+#> #   visibility_distance_quality <chr>, visibility_code <chr>,
+#> #   visibility_code_quality <chr>, temperature <chr>,
+#> #   temperature_quality <chr>, temperature_dewpoint <chr>,
+#> #   temperature_dewpoint_quality <chr>, air_pressure <chr>,
+#> #   air_pressure_quality <chr>,
+#> #   AW1_present_weather_observation_identifier <chr>,
+#> #   AW1_automated_atmospheric_condition_code <chr>,
+#> #   AW1_quality_automated_atmospheric_condition_code <chr>, REM_remarks <chr>,
+#> #   REM_identifier <chr>, REM_length_quantity <chr>, REM_comment <chr>
 ```
 
 Or, give back a list
 
-```{r}
+
+```r
 head(
   isd_parse_line(lns[1], as_data_frame = FALSE)
 )
+#> $total_chars
+#> [1] "0054"
+#> 
+#> $usaf_station
+#> [1] "024130"
+#> 
+#> $wban_station
+#> [1] "99999"
+#> 
+#> $date
+#> [1] "20160101"
+#> 
+#> $time
+#> [1] "0000"
+#> 
+#> $date_flag
+#> [1] "4"
 ```
 
 Optionally don't include "Additional" and "Remarks" sections in parsed output.
 
-```{r}
+
+```r
 isd_parse_line(lns[1], additional = FALSE)
+#> # A tibble: 1 x 31
+#>   total_chars usaf_station wban_station date  time  date_flag latitude longitude
+#>   <chr>       <chr>        <chr>        <chr> <chr> <chr>     <chr>    <chr>    
+#> 1 0054        024130       99999        2016… 0000  4         +60750   +012767  
+#> # … with 23 more variables: type_code <chr>, elevation <chr>,
+#> #   call_letter <chr>, quality <chr>, wind_direction <chr>,
+#> #   wind_direction_quality <chr>, wind_code <chr>, wind_speed <chr>,
+#> #   wind_speed_quality <chr>, ceiling_height <chr>,
+#> #   ceiling_height_quality <chr>, ceiling_height_determination <chr>,
+#> #   ceiling_height_cavok <chr>, visibility_distance <chr>,
+#> #   visibility_distance_quality <chr>, visibility_code <chr>,
+#> #   visibility_code_quality <chr>, temperature <chr>,
+#> #   temperature_quality <chr>, temperature_dewpoint <chr>,
+#> #   temperature_dewpoint_quality <chr>, air_pressure <chr>,
+#> #   air_pressure_quality <chr>
 ```
 
 
@@ -116,16 +243,64 @@ isd_parse_line(lns[1], additional = FALSE)
 
 Downloading a new file
 
-```{r}
+
+```r
 path <- file.path(tempdir(), "007026-99999-2017.gz")
 y <- "ftp://ftp.ncdc.noaa.gov/pub/data/noaa/2017/007026-99999-2017.gz"
 download.file(y, path)
 isd_parse(path)
+#> # A tibble: 6,843 x 72
+#>    total_chars usaf_station wban_station date  time  date_flag latitude
+#>    <chr>       <chr>        <chr>        <chr> <chr> <chr>     <chr>   
+#>  1 0157        007026       99999        2017… 1404  4         +00000  
+#>  2 0157        007026       99999        2017… 1414  4         +00000  
+#>  3 0157        007026       99999        2017… 1419  4         +00000  
+#>  4 0157        007026       99999        2017… 1424  4         +00000  
+#>  5 0157        007026       99999        2017… 1429  4         +00000  
+#>  6 0144        007026       99999        2017… 1434  4         +00000  
+#>  7 0157        007026       99999        2017… 1439  4         +00000  
+#>  8 0157        007026       99999        2017… 1444  4         +00000  
+#>  9 0172        007026       99999        2017… 1449  4         +00000  
+#> 10 0157        007026       99999        2017… 1454  4         +00000  
+#> # … with 6,833 more rows, and 65 more variables: longitude <chr>,
+#> #   type_code <chr>, elevation <chr>, call_letter <chr>, quality <chr>,
+#> #   wind_direction <chr>, wind_direction_quality <chr>, wind_code <chr>,
+#> #   wind_speed <chr>, wind_speed_quality <chr>, ceiling_height <chr>,
+#> #   ceiling_height_quality <chr>, ceiling_height_determination <chr>,
+#> #   ceiling_height_cavok <chr>, visibility_distance <chr>,
+#> #   visibility_distance_quality <chr>, visibility_code <chr>,
+#> #   visibility_code_quality <chr>, temperature <chr>,
+#> #   temperature_quality <chr>, temperature_dewpoint <chr>,
+#> #   temperature_dewpoint_quality <chr>, air_pressure <chr>,
+#> #   air_pressure_quality <chr>, GF1_sky_condition <chr>, GF1_coverage <chr>,
+#> #   GF1_opaque_coverage <chr>, GF1_coverage_quality <chr>,
+#> #   GF1_lowest_cover <chr>, GF1_lowest_cover_quality <chr>,
+#> #   GF1_low_cloud_genus <chr>, GF1_low_cloud_genus_quality <chr>,
+#> #   GF1_lowest_cloud_base_height <chr>,
+#> #   GF1_lowest_cloud_base_height_quality <chr>, GF1_mid_cloud_genus <chr>,
+#> #   GF1_mid_cloud_genus_quality <chr>, GF1_high_cloud_genus <chr>,
+#> #   GF1_high_cloud_genus_quality <chr>, MA1_atmospheric_pressure <chr>,
+#> #   MA1_altimeter_setting_rate <chr>, MA1_altimeter_quality_code <chr>,
+#> #   MA1_station_pressure_rate <chr>, MA1_station_pressure_quality_code <chr>,
+#> #   REM_remarks <chr>, REM_identifier <chr>, REM_length_quantity <chr>,
+#> #   REM_comment <chr>, OC1_wind_gust_observation_identifier <chr>,
+#> #   OC1_speed_rate <chr>, OC1_quality_code <chr>,
+#> #   GA1_sky_cover_layer_identifier <chr>, GA1_coverage_code <chr>,
+#> #   GA1_coverage_quality_code <chr>, GA1_base_height_dimension <chr>,
+#> #   GA1_base_height_quality_code <chr>, GA1_cloud_type_code <chr>,
+#> #   GA1_cloud_type_quality_code <chr>, GE1_sky_condition <chr>,
+#> #   GE1_connective_cloud_attribute <chr>, GE1_vertical_datum_attribute <chr>,
+#> #   GE1_base_height_upper_range_attribute <chr>,
+#> #   GE1_base_height_lower_range_attribute <chr>,
+#> #   AW1_present_weather_observation_identifier <chr>,
+#> #   AW1_automated_atmospheric_condition_code <chr>,
+#> #   AW1_quality_automated_atmospheric_condition_code <chr>
 ```
 
 ### Parallel
 
-```{r eval=FALSE}
+
+```r
 isd_parse(path, parallel = TRUE)
 ```
 
@@ -133,7 +308,8 @@ isd_parse(path, parallel = TRUE)
 
 > note: Progress not printed if `parallel = TRUE`
 
-```{r eval=FALSE}
+
+```r
 isd_parse(path, progress = TRUE)
 #>
 #>   |========================================================================================| 100%
@@ -167,7 +343,32 @@ isd_parse(path, progress = TRUE)
 
 Optionally don't include "Additional" and "Remarks" sections in parsed output.
 
-```{r}
+
+```r
 isd_parse(path, additional = FALSE)
+#> # A tibble: 6,843 x 31
+#>    total_chars usaf_station wban_station date  time  date_flag latitude
+#>    <chr>       <chr>        <chr>        <chr> <chr> <chr>     <chr>   
+#>  1 0157        007026       99999        2017… 1404  4         +00000  
+#>  2 0157        007026       99999        2017… 1414  4         +00000  
+#>  3 0157        007026       99999        2017… 1419  4         +00000  
+#>  4 0157        007026       99999        2017… 1424  4         +00000  
+#>  5 0157        007026       99999        2017… 1429  4         +00000  
+#>  6 0144        007026       99999        2017… 1434  4         +00000  
+#>  7 0157        007026       99999        2017… 1439  4         +00000  
+#>  8 0157        007026       99999        2017… 1444  4         +00000  
+#>  9 0172        007026       99999        2017… 1449  4         +00000  
+#> 10 0157        007026       99999        2017… 1454  4         +00000  
+#> # … with 6,833 more rows, and 24 more variables: longitude <chr>,
+#> #   type_code <chr>, elevation <chr>, call_letter <chr>, quality <chr>,
+#> #   wind_direction <chr>, wind_direction_quality <chr>, wind_code <chr>,
+#> #   wind_speed <chr>, wind_speed_quality <chr>, ceiling_height <chr>,
+#> #   ceiling_height_quality <chr>, ceiling_height_determination <chr>,
+#> #   ceiling_height_cavok <chr>, visibility_distance <chr>,
+#> #   visibility_distance_quality <chr>, visibility_code <chr>,
+#> #   visibility_code_quality <chr>, temperature <chr>,
+#> #   temperature_quality <chr>, temperature_dewpoint <chr>,
+#> #   temperature_dewpoint_quality <chr>, air_pressure <chr>,
+#> #   air_pressure_quality <chr>
 ```
 
