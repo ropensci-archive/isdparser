@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/isdparser",
   "issueTracker": "https://github.com/ropensci/isdparser/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.5.1",
+    "version": "3.6.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.5.1 Patched (2018-08-12 r75119)",
+  "runtimePlatform": "R version 3.6.2 Patched (2020-01-25 r77715)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -43,19 +43,6 @@
     }
   ],
   "softwareSuggestions": [
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "roxygen2",
-      "name": "roxygen2",
-      "version": ">= 6.1.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=roxygen2"
-    },
     {
       "@type": "SoftwareApplication",
       "identifier": "testthat",
@@ -119,14 +106,30 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=data.table"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "lubridate",
+      "name": "lubridate",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=lubridate"
     }
   ],
-  "contIntegration": "https://travis-ci.org/ropensci/isdparser",
+  "contIntegration": ["https://travis-ci.org/ropensci/isdparser", "https://codecov.io/github/ropensci/isdparser?branch=master"],
   "releaseNotes": "https://github.com/ropensci/isdparser/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/isdparser/blob/master/README.md",
-  "fileSize": "275.999KB",
+  "fileSize": "413.259KB",
   "applicationCategory": "Climate",
   "isPartOf": "https://ropensci.org",
   "keywords": ["climate", "NOAA", "data", "ISD", "stations", "noaa", "rstats", "isd", "noaa-isd", "r", "r-package"],
-  "developmentStatus": "http://www.repostatus.org/#active"
+  "developmentStatus": "http://www.repostatus.org/#active",
+  "relatedLink": "https://docs.ropensci.org/isdparser",
+  "contributor": {},
+  "copyrightHolder": {},
+  "funder": {}
 }

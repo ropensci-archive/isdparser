@@ -1,3 +1,10 @@
+isdparser 0.4.0
+===============
+
+### NEW FEATURES
+
+* Gains new function `isd_parse_csv()` for working with ISD csv files rather than the compressed ASCII text files that `isd_parse()` parses. This new function introduces two new package imports: data.table and lubridate. The internals of the parsing tools for the various data types have changed to accomodate both csv and ASCII text files (#16)
+
 isdparser 0.3.0
 ===============
 
