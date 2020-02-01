@@ -104,7 +104,7 @@ NULL
 #'  one of 9, 99, 999, 9999, 99999, 999999, or NA
 #'  \item description - (chr) short description of variable
 #'  \item dom - (chr) long description of variable with categories
-#'  \item dom_parsed_json - (list) NA if no categries, or a named list with
+#'  \item dom_parsed_json - (list) NA if no categories, or a named list with
 #'  category labels and their values
 #' }
 #'
