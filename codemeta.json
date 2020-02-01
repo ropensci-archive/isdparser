@@ -123,7 +123,7 @@
   "contIntegration": ["https://travis-ci.org/ropensci/isdparser", "https://codecov.io/github/ropensci/isdparser?branch=master"],
   "releaseNotes": "https://github.com/ropensci/isdparser/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/isdparser/blob/master/README.md",
-  "fileSize": "413.259KB",
+  "fileSize": "413.265KB",
   "applicationCategory": "Climate",
   "isPartOf": "https://ropensci.org",
   "keywords": ["climate", "NOAA", "data", "ISD", "stations", "noaa", "rstats", "isd", "noaa-isd", "r", "r-package"],
