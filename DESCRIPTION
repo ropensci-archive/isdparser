@@ -15,7 +15,7 @@ Authors@R: c(
     email = "myrmecocystus@gmail.com",
     comment = c(ORCID = "0000-0003-1444-9135"))
   )
-URL: https://docs.ropensci.org/isdparser (docs)
+URL: https://docs.ropensci.org/isdparser/ (docs)
     https://github.com/ropensci/isdparser (devel)
 BugReports: https://github.com/ropensci/isdparser/issues
 LazyData: true
@@ -28,7 +28,7 @@ Suggests:
     testthat,
     rmarkdown,
     knitr
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
 X-schema.org-applicationCategory: Climate
 X-schema.org-keywords: climate, NOAA, data, ISD, stations
 X-schema.org-isPartOf: https://ropensci.org

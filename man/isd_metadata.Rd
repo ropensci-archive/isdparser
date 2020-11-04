@@ -4,7 +4,9 @@
 \name{isd_metadata}
 \alias{isd_metadata}
 \title{NOAA ISD metadata data.frame}
-\format{A data frame with 643 rows and 19 columns}
+\format{
+A data frame with 643 rows and 19 columns
+}
 \description{
 This data.frame includes metadata describing all the data provided in ISD
 data files. And is used for transforming and scaling variables.

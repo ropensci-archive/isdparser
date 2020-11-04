@@ -5,14 +5,14 @@ isdparser
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![cran checks](https://cranchecks.info/badges/worst/isdparser)](https://cranchecks.info/pkgs/isdparser)
-[![Build Status](https://travis-ci.org/ropensci/isdparser.svg?branch=master)](https://travis-ci.org/ropensci/isdparser)
+[![R-check](https://github.com/ropensci/isdparser/workflows/R-check/badge.svg)](https://github.com/ropensci/isdparser/actions?query=workflow%3AR-check)
 [![codecov.io](https://codecov.io/github/ropensci/isdparser/coverage.svg?branch=master)](https://codecov.io/github/ropensci/isdparser?branch=master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/isdparser?color=C9A115)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/isdparser)](https://cran.r-project.org/package=isdparser)
 
 Parse NOAA Integrated Surface Data Files
 
-Documentation at https://docs.ropensci.org/isdparser
+Documentation at https://docs.ropensci.org/isdparser/
 
 ## isdparser: Parse 'NOAA' Integrated Surface Data Files:
 `isdparser` is a parser for 'NOAA' Integrated Surface Data ('ISD') files, described at <https://www.ncdc.noaa.gov/isd>. ISD includes numerous parameters such as wind speed and direction, wind gust, temperature, dew point, cloud data, sea level pressure, altimeter setting, station pressure, present weather, visibility, precipitation amounts for various time periods, snow depth, and various other elements as observed by each station. Data is stored as variable length ASCII character strings, with most fields optional. Included are tools for parsing entire files, or individual lines of data.
@@ -162,8 +162,6 @@ isd_parse(path, parallel = TRUE)
 * Please [report any issues or bugs](https://github.com/ropensci/isdparser/issues).
 * License: MIT
 * Get citation information for `isdparser` in R doing `citation(package = 'isdparser')`
-* Please note that this project is released with a [Contributor Code of Conduct][coc]. By participating in this project you agree to abide by its terms.
+* Please note that this package is released with a [Contributor Code of Conduct](https://ropensci.org/code-of-conduct/). By contributing to this project, you agree to abide by its terms.
 
 [![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
-
-[coc]: https://github.com/ropensci/isdparser/blob/master/CODE_OF_CONDUCT.md

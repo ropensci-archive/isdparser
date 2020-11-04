@@ -5,9 +5,6 @@
 \alias{isdparser-package}
 \alias{isdparser}
 \title{Parse NOAA ISD Files}
-\description{
-Parse NOAA ISD Files
-}
 \section{Data format}{
 
 Each record (data.frame row or individual list element) you get via
